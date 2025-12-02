@@ -3600,13 +3600,33 @@
                     modal.classList.remove('active');
                     document.body.style.overflow = '';
                 });
-                // Close lightbox on ESC
-                if (lightboxOverlay.classList.contains('active')) {
-                    closeLightbox();
-                }
             }
         });
+    </script>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
+    </div>
+
+    <script>
         // Lightbox functionality
         const lightboxOverlay = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
@@ -3615,7 +3635,6 @@
         let currentIndex = 0;
 
         function openLightbox(imgElement) {
-            // Get all images from the same modal
             const modal = imgElement.closest('.work-modal');
             currentImages = Array.from(modal.querySelectorAll('.work-modal-screenshot img'));
             currentIndex = currentImages.indexOf(imgElement);
@@ -3652,7 +3671,7 @@
             });
         });
 
-        // Close lightbox when clicking overlay (but not image)
+        // Close lightbox when clicking overlay
         lightboxOverlay.addEventListener('click', (e) => {
             if (e.target === lightboxOverlay || e.target.classList.contains('lightbox-image')) {
                 closeLightbox();
@@ -3662,32 +3681,11 @@
         // Keyboard navigation for lightbox
         document.addEventListener('keydown', (e) => {
             if (!lightboxOverlay.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') navigateLightbox(-1);
             if (e.key === 'ArrowRight') navigateLightbox(1);
         });
     </script>
-
-    <!-- Lightbox -->
-    <div class="lightbox-overlay" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">
-            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)">
-            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-        </button>
-        <img class="lightbox-image" id="lightbox-image" src="" alt="">
-        <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)">
-            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-        </button>
-        <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
-    </div>
 
 </body>
 </html>
