@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd comprehensive SEO optimization for search engines and AI\n\n- Primary meta tags (title, description, keywords, author, robots)\n- Open Graph meta tags for Facebook/social sharing\n- Twitter Card meta tags\n- Canonical URL\n- Structured data (JSON-LD) for ProfessionalService schema\n- FAQ structured data for AI/search crawlers\n- Semantic HTML improvements (header, main, footer with roles)\n- Enhanced alt text for images\n- Aria labels for accessibility\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
