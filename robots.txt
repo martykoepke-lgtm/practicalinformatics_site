@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://practicalinformatics.com/sitemap.xml
+Sitemap: https://www.practicalinformatics.com/sitemap.xml
