@@ -2270,6 +2270,125 @@
             }
         }
 
+        /* Screenshot Lightbox */
+        .work-modal-screenshot img {
+            cursor: zoom-in;
+            transition: opacity 0.2s ease;
+        }
+
+        .work-modal-screenshot img:hover {
+            opacity: 0.9;
+        }
+
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-image {
+            max-width: 95vw;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-overlay.active .lightbox-image {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-close svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .lightbox-prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-next {
+            right: 1.5rem;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
         /* FAQ Section */
         .faq {
             padding: 6rem 4rem;
@@ -3481,9 +3600,94 @@
                     modal.classList.remove('active');
                     document.body.style.overflow = '';
                 });
+                // Close lightbox on ESC
+                if (lightboxOverlay.classList.contains('active')) {
+                    closeLightbox();
+                }
             }
         });
+
+        // Lightbox functionality
+        const lightboxOverlay = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function openLightbox(imgElement) {
+            // Get all images from the same modal
+            const modal = imgElement.closest('.work-modal');
+            currentImages = Array.from(modal.querySelectorAll('.work-modal-screenshot img'));
+            currentIndex = currentImages.indexOf(imgElement);
+
+            lightboxImage.src = imgElement.src;
+            lightboxImage.alt = imgElement.alt;
+            updateCounter();
+            lightboxOverlay.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightboxOverlay.classList.remove('active');
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = currentImages.length - 1;
+            if (currentIndex >= currentImages.length) currentIndex = 0;
+
+            lightboxImage.src = currentImages[currentIndex].src;
+            lightboxImage.alt = currentImages[currentIndex].alt;
+            updateCounter();
+        }
+
+        function updateCounter() {
+            lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+        }
+
+        // Add click handlers to all screenshot images
+        document.querySelectorAll('.work-modal-screenshot img').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(img);
+            });
+        });
+
+        // Close lightbox when clicking overlay (but not image)
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target === lightboxOverlay || e.target.classList.contains('lightbox-image')) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightboxOverlay.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
     </script>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 4</div>
+    </div>
 
 </body>
 </html>
