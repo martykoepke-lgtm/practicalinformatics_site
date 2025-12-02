@@ -2346,6 +2346,7 @@
                 <li><a href="#coaching">Coaching</a></li>
                 <li><a href="#consulting">Consulting</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="https://tally.so/r/9qNRM5" class="nav-cta" aria-label="Start a conversation with Marty">Let's Talk</a></li>
             </ul>
         </nav>
@@ -2728,6 +2729,40 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="faq-inner">
+            <div class="section-label">Common Questions</div>
+            <h2>Frequently Asked</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Do I need coding experience for coaching?</h3>
+                    <p>No. But you should be comfortable learning new tools and willing to read documentation when needed. I'll teach you how to understand what the AI generates.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What kind of app can I build?</h3>
+                    <p>Internal tools, MVPs, simple SaaS products, portfolio projects, client-facing apps. Not games or complex enterprise platforms.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What tools will we use?</h3>
+                    <p>Cursor (AI-assisted coding), Supabase (database + auth), Vercel (hosting), and Claude or ChatGPT for prompting. All have generous free tiers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the time commitment?</h3>
+                    <p>For coaching: 3-5 hours per week — one 60-minute call plus 2-4 hours building between sessions. Consulting engagements vary by scope.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I don't finish in 8 weeks?</h3>
+                    <p>We keep going until you ship. No extra charge.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the difference between coaching and consulting?</h3>
+                    <p><strong>Coaching</strong> teaches you to build — you do the work with guidance. <strong>Consulting</strong> is me partnering with your team to solve a specific problem — analysis, recommendations, and implementation support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
     <!-- Footer -->
@@ -2787,7 +2822,7 @@
                         <div class="phase-number">4</div>
                         <h4>Launch</h4>
                         <div class="weeks">Weeks 7-8</div>
-                        <p>Deploy to production. Set up your domain, email, payments, legal. Document everything.</p>
+                        <p>I'll guide you through deploying to production, setting up your domain, and understanding what you need for legal (privacy policy, terms). You'll do the work — I'll show you what to expect.</p>
                         <div class="deliverable"><strong>You'll have:</strong> Live app, documentation, maintenance plan</div>
                     </div>
                 </div>
@@ -2813,15 +2848,15 @@
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Custom domain setup
+                            Guidance on domain, hosting & deployment
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Privacy policy & terms setup
+                            Overview of legal requirements (privacy, terms)
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Payments integration (Stripe)
+                            Payments integration walkthrough (Stripe)
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -3167,7 +3202,205 @@
         </div>
     </div>
 
+    <!-- Work Modals -->
+    <!-- Activiteez Modal -->
+    <div class="work-modal-overlay" id="modal-activiteez">
+        <div class="work-modal">
+            <button class="work-modal-close" onclick="closeWorkModal('activiteez')">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="work-modal-header">
+                <h2>Activiteez</h2>
+                <p class="work-modal-subtitle">Activity and resource management for multi-location organizations</p>
+            </div>
+            <div class="work-modal-screenshots">
+                <div class="work-modal-screenshot"><img src="Activiteez pics/Screenshot 2025-11-30 111812.png" alt="Activiteez Dashboard"></div>
+                <div class="work-modal-screenshot"><img src="Activiteez pics/Screenshot 2025-11-30 114003.png" alt="Activiteez Calendar"></div>
+                <div class="work-modal-screenshot"><img src="Activiteez pics/Screenshot 2025-11-30 111841.png" alt="Activiteez Activity Library"></div>
+                <div class="work-modal-screenshot"><img src="Activiteez pics/Screenshot 2025-11-30 111855.png" alt="Activiteez Inventory Management"></div>
+            </div>
+            <div class="work-modal-content">
+                <div class="work-modal-section">
+                    <h4>The Problem</h4>
+                    <p>Senior living facilities manage dozens of recurring activities across multiple buildings — often with spreadsheets, paper calendars, and guesswork about supplies.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>The Solution</h4>
+                    <p>A platform that handles scheduling, inventory tracking with automatic consumption, attendance management, and multi-building data isolation. Built for the activity director who doesn't have an IT department.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>What I Learned</h4>
+                    <p>Multi-tenant architecture sounds abstract until you're debugging why Building A can see Building B's bingo cards. I learned to think in contexts — and to let AI help me catch the edge cases I'd miss.</p>
+                </div>
+                <div class="work-modal-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">Multi-tenant</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GovernIQ Modal -->
+    <div class="work-modal-overlay" id="modal-governiq">
+        <div class="work-modal">
+            <button class="work-modal-close" onclick="closeWorkModal('governiq')">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="work-modal-header">
+                <h2>GovernIQ</h2>
+                <p class="work-modal-subtitle">Enterprise work management and capacity planning</p>
+            </div>
+            <div class="work-modal-screenshots">
+                <div class="work-modal-screenshot"><img src="Govern IQ Site Pics/Screenshot 2025-11-30 100902.png" alt="GovernIQ Analytics Dashboard"></div>
+                <div class="work-modal-screenshot"><img src="Govern IQ Site Pics/Screenshot 2025-11-30 100848.png" alt="GovernIQ Team Capacity View"></div>
+                <div class="work-modal-screenshot"><img src="Govern IQ Site Pics/Screenshot 2025-11-30 101040.png" alt="GovernIQ Request Management"></div>
+                <div class="work-modal-screenshot"><img src="Govern IQ Site Pics/Screenshot 2025-11-28 200224.png" alt="GovernIQ Field Options Management"></div>
+            </div>
+            <div class="work-modal-content">
+                <div class="work-modal-section">
+                    <h4>The Problem</h4>
+                    <p>Organizations tracking dozens of initiatives across multiple teams struggle to see who's overloaded, what's stuck, and where to focus. Spreadsheets break down. Visibility disappears.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>The Solution</h4>
+                    <p>A configurable platform for initiative tracking, governance workflows, and real-time capacity analytics. Fully customizable fields, weights, and branding — no code changes required.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>What I Learned</h4>
+                    <p>The hardest part of enterprise software isn't the features — it's making it flexible enough to fit how different organizations actually work. I built a system where admins can change everything without touching code.</p>
+                </div>
+                <div class="work-modal-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--gray-500); font-style: italic; margin-top: 1rem;">© 2025 Marty Koepke. U.S. Copyright Registration Case #1-15031668531. Developed independently using personal resources.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sophia Modal -->
+    <div class="work-modal-overlay" id="modal-sophia">
+        <div class="work-modal">
+            <button class="work-modal-close" onclick="closeWorkModal('sophia')">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="work-modal-header">
+                <h2>EHR Governance Assistant</h2>
+                <p class="work-modal-subtitle">Process navigator and AI assistant for EHR governance</p>
+            </div>
+            <div class="work-modal-content">
+                <div class="work-modal-section">
+                    <h4>The Problem</h4>
+                    <p>Enterprise EHR governance involves multiple committees, complex approval workflows, and dozens of stakeholders. People get lost trying to navigate the process.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>The Solution</h4>
+                    <p>An intuitive process navigator that breaks down each governance stage into clear steps, combined with an AI assistant that answers questions in plain language.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>What I Learned</h4>
+                    <p>The best documentation is the kind people actually use. I learned to design for the person who's frustrated and just wants to know "what happens next?"</p>
+                </div>
+                <div class="work-modal-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">AI Integration</span>
+                    <span class="tech-tag">Process Design</span>
+                </div>
+                <a href="https://sophiav2.vercel.app/" target="_blank" rel="noopener" class="work-modal-cta">
+                    View Demo
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- VytalPath Modal -->
+    <div class="work-modal-overlay" id="modal-vytalpath">
+        <div class="work-modal">
+            <button class="work-modal-close" onclick="closeWorkModal('vytalpath')">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="work-modal-header">
+                <h2>VytalPath Academy</h2>
+                <p class="work-modal-subtitle">Training platform for new healthcare staff</p>
+            </div>
+            <div class="work-modal-content">
+                <div class="work-modal-section">
+                    <h4>The Problem</h4>
+                    <p>New front office staff face an overwhelming first day — medical jargon, insurance workflows, HIPAA compliance, clinic procedures. The result is anxiety, mistakes, and high turnover.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>The Solution</h4>
+                    <p>A training and reference platform with 1,000+ healthcare terms in plain language, step-by-step workflows, HIPAA modules, and smart search. Accessible on phone or desktop.</p>
+                </div>
+                <div class="work-modal-section">
+                    <h4>What I Learned</h4>
+                    <p>Training isn't about dumping information — it's about being there at the moment someone needs an answer. I built for the person Googling "what does PRN mean" during their first week.</p>
+                </div>
+                <div class="work-modal-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">Mobile-First</span>
+                </div>
+                <a href="https://vytalpathdemo.vercel.app/" target="_blank" rel="noopener" class="work-modal-cta">
+                    View Demo
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Work Modal functionality
+        function openWorkModal(projectId) {
+            const modal = document.getElementById('modal-' + projectId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeWorkModal(projectId) {
+            const modal = document.getElementById('modal-' + projectId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close work modal when clicking overlay
+        document.querySelectorAll('.work-modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
         // Coaching Modal functionality
         const coachingModal = document.getElementById('coachingModal');
         const openCoachingBtn = document.getElementById('openCoachingModal');
@@ -3243,6 +3476,11 @@
                     consultingModal.classList.remove('active');
                     document.body.style.overflow = '';
                 }
+                // Close work modals on ESC
+                document.querySelectorAll('.work-modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
             }
         });
     </script>
