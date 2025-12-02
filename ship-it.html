@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship It Accelerator | From Idea to Live App in 8 Weeks</title>
+    <meta name="description" content="Stop tinkering, start shipping. The Ship It Accelerator is an 8-week 1:1 program that takes you from app idea to working product — live, deployed, and built to last. 2026 early access now open.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ship It Accelerator | From Idea to Live App in 8 Weeks">
+    <meta property="og:description" content="Stop tinkering, start shipping. 8-week 1:1 program from app idea to working product.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FAFBFC;
+            --color-bg-alt: #F5F7F9;
+            --color-text: #2C3E50;
+            --color-text-muted: #5D6D7E;
+            --color-accent: #4A6FA5;
+            --color-accent-light: #7899C4;
+            --color-accent-dark: #345480;
+            --color-warm: #8FA4BF;
+            --color-deep: #1C2833;
+            --color-success: #27ae60;
+            --color-danger: #e74c3c;
+            --font-display: 'Fraunces', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: var(--color-accent);
+            color: white;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-accent-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--color-bg) 0%, #EEF2F7 100%);
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 111, 165, 0.3);
+        }
+
+        .price-anchor {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+        }
+
+        .price-anchor .old-price {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .price-anchor .new-price {
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .section-body {
+            font-size: 1.15rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+
+        .section-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--color-bg-alt);
+        }
+
+        .problem-list {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .problem-list li {
+            padding: 0.75rem 0;
+            font-size: 1.1rem;
+            color: var(--color-text);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .problem-list .icon {
+            color: var(--color-danger);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .callout {
+            background: white;
+            border-left: 4px solid var(--color-accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--color-bg);
+        }
+
+        .solution-list {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .solution-list li {
+            padding: 0.75rem 0;
+            font-size: 1.1rem;
+            color: var(--color-text);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Program Section */
+        .program {
+            background: var(--color-bg-alt);
+        }
+
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .phase-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .phase-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .phase-card .phase-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .phase-card p {
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .phase-card .deliverable {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            font-style: italic;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-bg-alt);
+        }
+
+        /* Included Section */
+        .included {
+            background: var(--color-bg);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .included-card {
+            background: var(--color-bg-alt);
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .included-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .included-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .included-card li {
+            padding: 0.5rem 0;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, var(--color-deep) 0%, #2D3E50 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .pricing .section-header {
+            color: white;
+        }
+
+        .pricing .section-body {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .value-stack {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .value-stack h4 {
+            font-family: var(--font-display);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .value-row:last-child {
+            border-bottom: none;
+            padding-top: 1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .price-display {
+            margin: 2rem 0;
+        }
+
+        .price-display .old {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .price-display .current {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            display: block;
+        }
+
+        .price-display .label {
+            color: var(--color-accent-light);
+            font-weight: 600;
+        }
+
+        .guarantee {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guarantee strong {
+            color: var(--color-accent-light);
+        }
+
+        /* Who Section */
+        .who {
+            background: var(--color-bg-alt);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .fit-list, .not-fit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fit-list li, .not-fit-list li {
+            padding: 0.75rem 0;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .fit-list .icon {
+            color: var(--color-success);
+        }
+
+        .not-fit-list .icon {
+            color: var(--color-text-muted);
+        }
+
+        .not-fit h3 {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--color-bg);
+        }
+
+        .faq-list {
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-bg-alt);
+        }
+
+        .faq-item h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .faq-item p {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-bg-alt);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .about-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .about-text p {
+            color: var(--color-text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .about-links a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .about-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--color-bg);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .final-cta .section-header {
+            margin-bottom: 1rem;
+        }
+
+        .final-cta .section-body {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-deep);
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-photo {
+                max-width: 250px;
+            }
+
+            .hero-cta {
+                align-items: center;
+            }
+
+            .phase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-photo {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .price-display .current {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">Marty Koepke</a>
+        <a href="https://tally.so/r/xXVPgo" target="_blank" rel="noopener" class="nav-cta">Apply Now</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-grid">
+                <div class="hero-image">
+                    <img src="IMG_8527.jpg" alt="Marty Koepke" class="hero-photo">
+                </div>
+                <div class="hero-content">
+                    <h1>You have an app idea. Let's make it <span class="highlight">real.</span></h1>
+                    <p class="hero-subtitle">Most "build an app in an hour" promises leave you with a broken demo and no clue what went wrong. In 8 weeks, you'll have a working product — live, deployed, and built to last.</p>
+                    <div class="hero-cta">
+                        <a href="https://tally.so/r/xXVPgo" target="_blank" rel="noopener" class="btn-primary">Apply Now</a>
+                        <p class="price-anchor"><strong>2026 Early Access:</strong> <span class="old-price">$3,500</span> <span class="new-price">$2,000</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="section-container">
+            <h2 class="section-header">The "Vibe Coding" Trap</h2>
+            <div class="section-body">
+                <p>You've seen the hype. "Build an app in 60 minutes!" So you tried Bolt, Replit, or Lovable. Maybe you got something that looked like an app.</p>
+                <p>Then reality hit:</p>
+            </div>
+            <ul class="problem-list">
+                <li><span class="icon">✗</span> This is taking way more prompts than you expected — and the AI credits are adding up</li>
+                <li><span class="icon">✗</span> Something broke and you had no idea why</li>
+                <li><span class="icon">✗</span> You couldn't deploy it to a real domain</li>
+                <li><span class="icon">✗</span> Payments? Privacy policies? App store submission? Nobody mentioned those.</li>
+                <li><span class="icon">✗</span> You had a demo, not a product</li>
+            </ul>
+            <div class="section-body">
+                <p>So you gave up. Or started over. Again.</p>
+            </div>
+            <div class="callout">
+                The tools are powerful. But without context, you're burning time and money guessing.
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="section-container">
+            <h2 class="section-header">Context-First App Building</h2>
+            <div class="section-body">
+                <p>I don't teach you to "vibe code." I teach you to <strong>ship.</strong></p>
+                <p>That means understanding:</p>
+            </div>
+            <ul class="solution-list">
+                <li>What problem you're actually solving (before you write a prompt)</li>
+                <li>How to fix what breaks — without starting over</li>
+                <li>The full stack: domain, hosting, email, payments, legal</li>
+                <li>How to maintain what you built (so it doesn't become technical debt)</li>
+            </ul>
+            <div class="callout">
+                You'll leave with a working app AND the knowledge to keep building.
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program">
+        <div class="section-container">
+            <h2 class="section-header">The 8-Week Accelerator</h2>
+            <div class="phase-grid">
+                <div class="phase-card">
+                    <h3>Phase 1</h3>
+                    <p class="phase-title">Clarity (Weeks 1-2)</p>
+                    <p>Define the problem worth solving. Scope the MVP. Create a wireframe you can actually build.</p>
+                    <p class="deliverable"><strong>You'll have:</strong> Problem statement, target user, MVP scope, wireframe</p>
+                </div>
+                <div class="phase-card">
+                    <h3>Phase 2</h3>
+                    <p class="phase-title">Architecture (Weeks 3-4)</p>
+                    <p>Set up your tools. Design your data structure. Establish your codebase.</p>
+                    <p class="deliverable"><strong>You'll have:</strong> Tech stack configured, database schema, GitHub repo</p>
+                </div>
+                <div class="phase-card">
+                    <h3>Phase 3</h3>
+                    <p class="phase-title">Build (Weeks 5-6)</p>
+                    <p>Construct your MVP with AI assistance. Debug together. Iterate based on what works.</p>
+                    <p class="deliverable"><strong>You'll have:</strong> Working prototype, tested and refined</p>
+                </div>
+                <div class="phase-card">
+                    <h3>Phase 4</h3>
+                    <p class="phase-title">Launch (Weeks 7-8)</p>
+                    <p>Deploy to production. Set up your domain, email, payments, legal. Document everything.</p>
+                    <p class="deliverable"><strong>You'll have:</strong> Live app on your domain, documentation, maintenance plan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="included">
+        <div class="section-container">
+            <h2 class="section-header">Everything You Need to Ship</h2>
+            <div class="included-grid">
+                <div class="included-card">
+                    <h3>Coaching</h3>
+                    <ul>
+                        <li>8 x 60-minute 1:1 sessions</li>
+                        <li>Async support between calls (Slack or email)</li>
+                    </ul>
+                </div>
+                <div class="included-card">
+                    <h3>Deliverables</h3>
+                    <ul>
+                        <li>Working deployed app</li>
+                        <li>Custom domain setup</li>
+                        <li>GitHub repo with clean code</li>
+                        <li>Documentation for maintenance</li>
+                    </ul>
+                </div>
+                <div class="included-card">
+                    <h3>Resources & Guides</h3>
+                    <ul>
+                        <li>PRD template</li>
+                        <li>Prompting playbook</li>
+                        <li>Tech stack decision guide</li>
+                        <li>Privacy policy + ToS setup</li>
+                        <li>Payments integration (Stripe)</li>
+                        <li>True cost calculator</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="section-container">
+            <h2 class="section-header">2026 Early Access</h2>
+            <div class="section-body">
+                <p>I only take three clients at a time so I can give each project the attention it deserves. Lock in 2026 pricing now — before rates increase in the new year.</p>
+            </div>
+            <div class="value-stack">
+                <h4>What You Get</h4>
+                <div class="value-row"><span>8 weeks of 1:1 coaching</span><span>$1,600</span></div>
+                <div class="value-row"><span>Async support</span><span>$400</span></div>
+                <div class="value-row"><span>Templates + guides</span><span>$500</span></div>
+                <div class="value-row"><span>Deployment + legal setup</span><span>$300</span></div>
+                <div class="value-row"><span>Ongoing reference materials</span><span>$200</span></div>
+                <div class="value-row"><span>Total Value</span><span>$3,000+</span></div>
+            </div>
+            <div class="price-display">
+                <span class="old">$3,500</span>
+                <span class="current">$2,000</span>
+                <span class="label">2026 Early Access Rate</span>
+            </div>
+            <a href="https://tally.so/r/xXVPgo" target="_blank" rel="noopener" class="btn-primary">Apply Now</a>
+            <div class="guarantee">
+                <strong>Ship or keep going.</strong> If you don't have a working, deployed app by Week 8, I'll keep working with you until you do.
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For Section -->
+    <section class="who">
+        <div class="section-container">
+            <h2 class="section-header">This Is For You If:</h2>
+            <div class="who-grid">
+                <div class="fit">
+                    <ul class="fit-list">
+                        <li><span class="icon">✓</span> You have an idea for an app, tool, or product</li>
+                        <li><span class="icon">✓</span> You've played with AI builders but hit walls</li>
+                        <li><span class="icon">✓</span> You want to understand what you're building — not just copy-paste and pray</li>
+                        <li><span class="icon">✓</span> You're ready to commit 3-5 hours/week for 8 weeks</li>
+                        <li><span class="icon">✓</span> You want something real, not another tutorial</li>
+                    </ul>
+                </div>
+                <div class="not-fit">
+                    <h3>This is NOT for you if:</h3>
+                    <ul class="not-fit-list">
+                        <li><span class="icon">—</span> You want to become a full-time software developer</li>
+                        <li><span class="icon">—</span> You're looking for done-for-you development</li>
+                        <li><span class="icon">—</span> You need an enterprise platform built by a team</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-container">
+            <h2 class="section-header">Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Do I need coding experience?</h3>
+                    <p>No. But you should be comfortable learning new tools and willing to read documentation when needed. I'll teach you how to understand what the AI generates.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What kind of app can I build?</h3>
+                    <p>Internal tools, MVPs, simple SaaS products, portfolio projects, client-facing apps. Not games or complex enterprise platforms.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What tools will we use?</h3>
+                    <p>Cursor (AI-assisted coding), Supabase (database + auth), Vercel (hosting), and Claude or ChatGPT for prompting. All have generous free tiers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the time commitment?</h3>
+                    <p>3-5 hours per week: one 60-minute call plus 2-4 hours building between sessions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I don't finish in 8 weeks?</h3>
+                    <p>We keep going until you ship. No extra charge.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if my idea isn't right?</h3>
+                    <p>That's part of the process. We'll figure that out in the first two weeks — before you've invested build time in the wrong direction.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why only three clients at a time?</h3>
+                    <p>Because this is real 1:1 work, not a course you watch alone. I'm in the details with you. That only works with a small number of people.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>When does it start?</h3>
+                    <p>We'll kick off in January 2026. Apply now to secure your spot and lock in the early access rate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="section-container">
+            <h2 class="section-header">Who's Behind This?</h2>
+            <div class="about-content">
+                <img src="IMG_8527.jpg" alt="Marty Koepke" class="about-photo">
+                <div class="about-text">
+                    <p>I'm Marty. I've built and shipped 4 working applications — GovernIQ, Activiteez, Sophia, and VytalPath Academy — without being a professional developer.</p>
+                    <p>I've also failed at the "build an app in an hour" promise enough times to know what actually matters: clarity before code, understanding over speed, and shipping over tinkering.</p>
+                    <p>By day, I work in healthcare informatics helping large organizations solve complex problems. I wrote <em>Between the Clicks</em> for people entering that field. Now I help others build products of their own.</p>
+                    <p>I live in California's Gold Country with my wife of 23 years, two grown sons, a one-year-old grandbaby, and a small flock of chickens.</p>
+                    <div class="about-links">
+                        <a href="https://www.linkedin.com/in/martykoepke/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://a.co/d/ivCKeGo" target="_blank" rel="noopener">Between the Clicks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="section-container">
+            <h2 class="section-header">Ready to Ship in 2026?</h2>
+            <div class="section-body">
+                <p>Stop watching tutorials. Stop restarting projects. Stop burning credits on prompts that go nowhere.</p>
+                <p>Let's build something real — together.</p>
+            </div>
+            <a href="https://tally.so/r/xXVPgo" target="_blank" rel="noopener" class="btn-primary">Apply Now</a>
+            <p class="price-anchor" style="margin-top: 1rem;"><strong>2026 Early Access:</strong> <span class="old-price">$3,500</span> <span class="new-price">$2,000</span></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Practical Informatics LLC. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="terms-of-service.html">Terms</a> |
+            <a href="privacy-policy.html">Privacy</a> |
+            <a href="refund-policy.html">Refunds</a>
+        </p>
+    </footer>
+</body>
+</html>
