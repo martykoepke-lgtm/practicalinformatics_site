@@ -33,11 +33,14 @@ export default function EmailGate({ onComplete }: EmailGateProps) {
 
     setSubmitting(true);
     try {
+      const formData = new URLSearchParams();
+      formData.append('name', name.trim());
+      formData.append('email', email.trim());
+
       await fetch(endpoint, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim() }),
+        body: formData,
       });
 
       // no-cors returns opaque response, so we trust it went through
