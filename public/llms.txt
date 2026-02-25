@@ -1,0 +1,146 @@
+# Practical Informatics
+
+> Technology is always the last decision.
+
+Practical Informatics is a healthcare technology consulting practice founded by Marty Koepke, MHA. The practice is built around the **PULSE Framework** — a structured methodology for technology implementation that starts with observation, not assumptions.
+
+## About
+
+**Marty Koepke** spent 15 years inside one of the nation's largest nonprofit health systems — 140+ hospitals, 2,200+ ambulatory care sites, 25,000+ clinicians across multiple EHR platforms. Four years in ICU critical care and fifteen years in clinical informatics shaped the PULSE Framework: a repeatable methodology for getting technology decisions right.
+
+Marty is also the author of *Between the Clicks: The Hidden Work of Healthcare Informatics* (available at https://a.co/d/08QnZGaP).
+
+**Credentials:** Master of Healthcare Administration | Lean Six Sigma Green Belt (pursuing Black Belt) | SAFe 6.0 Agilist | Certified Scrum Master
+
+## The PULSE Framework
+
+PULSE is a five-phase methodology for technology implementation — especially AI — that ensures the right questions are asked before any technology decision is made.
+
+### Phase 1: Problem
+**What's actually broken — and for whom?**
+Define the problem in plain language. Not the vendor's language. Not the executive summary version. The version that the person doing the work would recognize. Identify stakeholders, classify risk, and determine if AI governance applies.
+*Governance Checkpoint: Is the problem clearly defined and worth pursuing?*
+
+### Phase 2: Understand
+**What is actually happening?**
+Go watch the work happen. Document every step, every workaround, every pain point. Categorize issues as People, Process, or Platform. Identify what can be fixed today. Map how data actually moves.
+*Governance Checkpoint: Do we understand reality well enough to define success?*
+
+### Phase 3: Landscape
+**What should be happening — and what's the gap?**
+Align leadership on the desired state in operational terms, not vendor language. Translate vague outcomes into measurable success criteria. Map every gap between current and desired state. Classify each gap as People, Process, or Platform. Prioritize by impact and effort.
+*Governance Checkpoint: Is the gap real, and is the proposed direction justified?*
+
+### Phase 4: Solve
+**How do we close the gap?**
+Convert gaps into concrete action plans — separated by audience. People actions go to training leads. Process actions go to operations. Platform actions go to IT. Translate the same solution into language each stakeholder group understands. Document governance before go-live.
+*Governance Checkpoint: Has the solution been validated by the people who do the work, lead it, and build it?*
+
+### Phase 5: Enable
+**How do we make it stick?**
+Implementation without adoption is just expensive decoration. Enable covers readiness checks, training design, communication planning, and post-implementation monitoring. Track outcomes at 30, 60, and 90 days. Monitor for equity disparities and AI drift.
+*Governance Checkpoint: Are we monitoring outcomes and ready to adjust?*
+
+## AI Fit Diagnostic
+
+An interactive diagnostic tool at https://www.practicalinformatics.com/pulse that helps organizations determine which pain points are real AI candidates and which need people/process fixes first. The tool follows a four-step flow:
+
+1. **Email Gate**: Name and email capture before accessing the diagnostic
+2. **Identify**: Users list their pain points, bottlenecks, or problems they're considering solving with technology
+3. **Assess**: Each pain point is evaluated with 7 questions covering variation, compliance, data readiness, AI intent, repetitiveness, and observation status
+4. **Results**: Pain points are sorted into three buckets — Fix First (people/process problems), Good AI Candidate (data and process maturity support AI), or Investigate More (needs more observation)
+
+Results include per-item action recommendations, score breakdowns, pattern insights based on tag distribution, and a direct bridge to the PULSE Pathway Builder.
+
+## PULSE Pathway Builder
+
+Integrated into the same page as the AI Fit Diagnostic at https://www.practicalinformatics.com/pulse. The diagnostic results auto-map to Pathway Builder inputs (tier suggestion + AI involvement). Users can also access the Pathway Builder directly. It generates a personalized PULSE Framework checklist based on three intake questions:
+
+1. **Risk Tier**: Tier 1 (Standard — operational, no PHI, no AI), Tier 2 (Elevated — PHI, clinical workflows, or existing AI), or Tier 3 (Critical — new AI, clinical decision support, cross-system data)
+2. **AI Involvement**: Whether the initiative involves AI or machine learning
+3. **Vendor Involvement**: Whether an external vendor or product is involved
+
+Based on these answers, the tool generates a filtered pathway of 10–30 steps across all five PULSE phases, each with:
+- Description of what the step involves
+- Definition of done
+- Time estimate
+- Which toolkit tab it maps to
+- Type classification (Core, Governance, AI, Facilitation, Vendor)
+
+The Pathway Builder includes progress tracking with a visual progress bar and phase-by-phase completion indicators.
+
+## Products & Services
+
+### PULSE Methodology Guide (Free, no email required)
+The foundational document of the PULSE Framework. Defines the philosophy, structure, governance model, and guiding principles behind every phase. 10 sections covering purpose, the problem PULSE solves, guiding principles, framework structure, People/Process/Platform classification, governance model, toolkit philosophy, and the role of the domain translator.
+
+### PULSE Web App ($197)
+A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation with Gemba-style sessions, pain point cataloging with People/Process/Platform classification, gap analysis, three-lane action planning, and 30/60/90-day outcome monitoring. Automatically calculates People vs. Process vs. Platform breakdown — most teams discover the majority of their pain points aren't technology problems at all. One-time purchase, no recurring costs.
+Purchase: https://martypractical.gumroad.com/l/ebjqkf
+
+### Consulting
+Marty partners with organizations to implement technology the right way using the PULSE Framework. Every engagement follows the same five phases, scaled to the initiative.
+Contact: https://tally.so/r/9qNRM5
+
+### From Curious to Capable (Coming Soon)
+A community for domain experts who want to learn to build with AI. Not a coding bootcamp — a space for people whose careers have been about translating between groups, and who are ready to use AI to build what they've been specifying for others.
+
+### 1:1 App Accelerator ($2,000)
+An 8-week program where you build your first AI-powered application with direct coaching. From idea to deployed product.
+Apply: https://tally.so/r/xXVPgo
+
+## The Domain Translator
+
+The hardest part of any technology project isn't the technology — it's the translation. Clinical teams describe problems one way. Leadership frames priorities another way. IT speaks an entirely different language. The gap between those groups is where projects fail — not because anyone is wrong, but because no one is translating.
+
+A domain translator sits between all of them. Not belonging to any single group, but fluent in each. That's what Marty does. That's what the PULSE Framework systematizes. And it's the skill that matters most in the age of AI — because AI doesn't fail when the code is wrong. It fails when the question was wrong.
+
+## Two Lanes
+
+Every organization — especially in healthcare — needs two AI strategies running simultaneously:
+
+**Lane 1: Integrate Technology the Right Way** — For CIOs, VPs, Directors, Operations Leaders. The question isn't whether to adopt — it's whether you're doing the work before the purchase that determines whether it actually works.
+
+**Lane 2: Build With AI Yourself** — For domain experts, informaticists, project managers, curious professionals. The barrier to entry for software development is essentially zero. The skill isn't coding. It's knowing what to build and why.
+
+## Portfolio
+
+### Activiteez
+Activity and resource management for multi-location senior living organizations. Scheduling, inventory tracking with automatic consumption, attendance management, and multi-building data isolation.
+Tags: React, TypeScript, Supabase, Multi-tenant
+
+### GovernIQ
+Enterprise work management and capacity planning. Configurable initiative tracking, governance workflows, and real-time capacity analytics.
+Tags: React, TypeScript, Supabase, PostgreSQL
+© 2025 Marty Koepke. U.S. Copyright Registration Case #1-15031668531.
+
+### EHR Governance Assistant
+Process navigator and AI assistant for EHR governance. Breaks down each governance stage into clear steps with an AI assistant that answers questions in plain language.
+Demo: https://sophiav2.vercel.app/
+Tags: React, AI Integration, Process Design
+
+### VytalPath Academy
+Training platform for new healthcare staff. 1,000+ healthcare terms in plain language, step-by-step workflows, HIPAA modules, and smart search.
+Demo: https://vytalpathdemo.vercel.app/
+Tags: React, TypeScript, Supabase, Mobile-First
+
+## FAQ
+
+**What is the PULSE Framework?**
+PULSE stands for Problem, Understand, Landscape, Solve, Enable. It's a structured methodology for implementing technology — especially AI — that starts with observing what's actually happening before deciding what to build.
+
+**Is this only for healthcare?**
+The methodology was developed in healthcare, but the pattern is universal. Any organization implementing technology — especially AI — faces the same gap between what leadership wants and what's actually happening on the ground.
+
+**Do I need coding experience to use the PULSE Web App?**
+No. The web app is designed for domain experts, not developers. Your team interacts with a polished interface — they never see the underlying spreadsheet.
+
+**What does "technology is always the last decision" mean?**
+Most technology projects fail not because of bad technology, but because the organization never clearly defined the problem, understood what was actually happening, or aligned on what success looks like. PULSE ensures those things happen first.
+
+## Contact
+
+- Website: https://www.practicalinformatics.com
+- Book a Call: https://tally.so/r/9qNRM5
+- LinkedIn: https://www.linkedin.com/in/marty-koepke/
+- Book: https://a.co/d/08QnZGaP
