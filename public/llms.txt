@@ -74,7 +74,7 @@ The Pathway Builder includes progress tracking with a visual progress bar and ph
 ### PULSE Methodology Guide (Free, no email required)
 The foundational document of the PULSE Framework. Defines the philosophy, structure, governance model, and guiding principles behind every phase. 10 sections covering purpose, the problem PULSE solves, guiding principles, framework structure, People/Process/Platform classification, governance model, toolkit philosophy, and the role of the domain translator.
 
-### PULSE Web App ($197)
+### PULSE Web App ($49)
 A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation with Gemba-style sessions, pain point cataloging with People/Process/Platform classification, gap analysis, three-lane action planning, and 30/60/90-day outcome monitoring. Automatically calculates People vs. Process vs. Platform breakdown — most teams discover the majority of their pain points aren't technology problems at all. One-time purchase, no recurring costs.
 Purchase: https://martypractical.gumroad.com/l/ebjqkf
 

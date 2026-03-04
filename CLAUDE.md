@@ -135,7 +135,7 @@ Multi-phase interactive tool with 4 screens:
 1. **Hero** — Gradient H1, 3 CTAs (Methodology/AI Diagnostic/Work With Me), PULSE EKG SVG animation, stat bar
 2. **The Pattern** — Narrative prose, Steel Blue pull quote border
 3. **PULSE Framework** — Interactive circuit: 5 nodes, click → layoutId morph to glassmorphism modal with scanline governance checkpoint
-4. **Start Here** — Methodology Guide card (opens modal), AI Fit Diagnostic CTA, PULSE Web App ($197 on Gumroad)
+4. **Start Here** — Methodology Guide card (opens modal), AI Fit Diagnostic CTA, PULSE Web App ($49 on Gumroad)
 5. **Two Lanes** — Glass cards with accent glow (Steel Blue for orgs, Burnt Orange for builders)
 6. **Work With Me** — Simple text + Book a Call CTA (spring hover)
 7. **From Curious to Capable** — COMING SOON badge, learn list, accelerator callout card
@@ -152,7 +152,7 @@ Multi-phase interactive tool with 4 screens:
 | Book a Call | `https://tally.so/r/9qNRM5` | Live |
 | 1:1 Accelerator | `https://tally.so/r/xXVPgo` | Live |
 | PULSE Methodology | Modal (onClick) | **Active — opens MethodologyModal** |
-| PULSE Web App | `https://martypractical.gumroad.com/l/ebjqkf` | Live ($197) |
+| PULSE Web App | `https://martypractical.gumroad.com/l/ebjqkf` | Live ($49) |
 | Community | `#` | **Placeholder** |
 | LinkedIn | `https://www.linkedin.com/in/marty-koepke/` | Live |
 | Between the Clicks | `https://a.co/d/08QnZGaP` | Live |

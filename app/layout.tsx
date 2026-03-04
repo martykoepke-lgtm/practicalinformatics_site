@@ -115,7 +115,7 @@ export default function RootLayout({
                     name: "PULSE Web App",
                     description:
                       "A web application with 30 structured data tables, automated People/Process/Platform classification, dashboards, and 90-day outcome tracking. Built on Google Sheets.",
-                    price: "197",
+                    price: "49",
                     priceCurrency: "USD",
                   },
                   {
@@ -156,7 +156,7 @@ export default function RootLayout({
                   name: "What's the difference between the Methodology Guide, the Diagnostic, and the Web App?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "The Methodology Guide is the foundational philosophy — the principles, governance model, and decision logic behind PULSE. It's free and requires no email. The AI Fit Diagnostic is a free interactive tool that helps you determine which pain points are real AI candidates and which need people or process fixes first. The PULSE Web App ($197) is the full operational toolkit — 30 structured data tables, automated People/Process/Platform classification, dashboards, and 90-day outcome tracking.",
+                    text: "The Methodology Guide is the foundational philosophy — the principles, governance model, and decision logic behind PULSE. It's free and requires no email. The AI Fit Diagnostic is a free interactive tool that helps you determine which pain points are real AI candidates and which need people or process fixes first. The PULSE Web App ($49) is the full operational toolkit — 30 structured data tables, automated People/Process/Platform classification, dashboards, and 90-day outcome tracking.",
                   },
                 },
                 {
@@ -164,7 +164,7 @@ export default function RootLayout({
                   name: "What's in the PULSE Web App?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation, pain point cataloging, gap analysis, three-lane action planning (People, Process, Platform), and 30/60/90-day outcome monitoring. One-time purchase at $197 — no recurring costs.",
+                    text: "A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation, pain point cataloging, gap analysis, three-lane action planning (People, Process, Platform), and 30/60/90-day outcome monitoring. One-time purchase at $49 — no recurring costs.",
                   },
                 },
                 {

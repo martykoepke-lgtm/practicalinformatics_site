@@ -41,7 +41,7 @@ export const hero = {
   ctas: [
     { label: 'Read the PULSE Methodology', variant: 'shimmer' as const, action: 'methodology-modal' as const },
     { label: 'Find Where AI Fits', href: '/pulse', variant: 'spring' as const },
-    { label: 'Get the Web App — $197', href: 'https://martypractical.gumroad.com/l/ebjqkf', variant: 'primary' as const },
+    { label: 'Get the Web App — $49', href: 'https://martypractical.gumroad.com/l/ebjqkf', variant: 'primary' as const },
     { label: 'Work With Me', href: '#consulting', variant: 'ghost' as const },
   ],
 } as const;
@@ -128,7 +128,7 @@ export const startHere = {
     title: 'The PULSE Web App',
     tagline: 'Five phases. One spreadsheet. Every initiative organized from problem to proof.',
     description: 'A structured five-phase path from problem definition to 90-day proof. The PULSE Web App automatically surfaces whether pain points are People, Process, or Platform issues — so you fix the right thing first. Technology comes last, and only when justified by evidence.',
-    price: '$197',
+    price: '$49',
     priceNote: 'One-time purchase. No subscription.',
     features: [
       { title: 'Key Insight Engine', description: 'Auto-calculates your People vs. Process vs. Platform breakdown — most teams discover the majority of their pain points aren\'t technology problems at all.' },
@@ -304,7 +304,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "What's in the PULSE Web App?",
-    answer: "A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation, pain point cataloging, gap analysis, three-lane action planning (People, Process, Platform), and 30/60/90-day outcome monitoring. One-time purchase at $197 — no recurring costs.",
+    answer: "A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation, pain point cataloging, gap analysis, three-lane action planning (People, Process, Platform), and 30/60/90-day outcome monitoring. One-time purchase at $49 — no recurring costs.",
   },
   {
     question: 'Is this only for healthcare?',
@@ -323,8 +323,8 @@ export const faqItems: FaqItem[] = [
     answer: "Because your team already has it. No procurement cycle. No new logins. No data leaving your organization. The web app runs on top of Sheets so your team interacts with a polished interface — they never see the spreadsheet. And if you ever outgrow it, the data is yours to export.",
   },
   {
-    question: '$197 seems expensive for a spreadsheet.',
-    answer: "It's not a spreadsheet. It's a web application with 30 structured data tables, automated calculations, a dashboard, print-ready reports, and a built-in methodology guide. Compare that to any SaaS tool doing a fraction of this at $50/month/user. This is a one-time purchase with no recurring costs.",
+    question: '$49 seems inexpensive for something this comprehensive.',
+    answer: "That's intentional. The PULSE Web App is priced for the practitioners who actually do this work — not enterprise procurement budgets. It's a one-time purchase with no recurring costs. Same methodology, same rigor, accessible price.",
   },
   {
     question: 'What does "technology is always the last decision" mean?',

@@ -60,7 +60,7 @@ export default function StartHere({ onOpenMethodology }: StartHereProps) {
         <p className="mt-3 text-xs italic text-slate-500">Free. Takes 5 minutes.</p>
       </motion.div>
 
-      {/* PULSE Web App — $197 */}
+      {/* PULSE Web App — $49 */}
       <motion.div
         className="mx-auto mt-8 max-w-2xl rounded-2xl border border-steel/20 bg-steel/5 p-8 backdrop-blur-xl"
         initial={{ opacity: 0, y: 20 }}
