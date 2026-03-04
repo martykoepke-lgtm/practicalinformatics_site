@@ -300,7 +300,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "What's the difference between the Methodology Guide, the Diagnostic, and the Web App?",
-    answer: "The Methodology Guide is the foundational philosophy — the principles, governance model, and decision logic behind PULSE. It's free and requires no email. The AI Fit Diagnostic is a free interactive tool that helps you determine which pain points are real AI candidates and which need people or process fixes first. The PULSE Web App ($197) is the full operational toolkit — 30 structured data tables, automated People/Process/Platform classification, dashboards, and 90-day outcome tracking.",
+    answer: "The Methodology Guide is the foundational philosophy — the principles, governance model, and decision logic behind PULSE. It's free and requires no email. The AI Fit Diagnostic is a free interactive tool that helps you determine which pain points are real AI candidates and which need people or process fixes first. The PULSE Web App ($49) is the full operational toolkit — 30 structured data tables, automated People/Process/Platform classification, dashboards, and 90-day outcome tracking.",
   },
   {
     question: "What's in the PULSE Web App?",

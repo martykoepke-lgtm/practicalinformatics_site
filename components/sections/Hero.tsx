@@ -94,7 +94,7 @@ export default function Hero({ onOpenMethodology }: HeroProps) {
             Find Where AI Fits <ArrowIcon />
           </Button>
           <Button href={links.webApp} variant="primary">
-            Get the Web App — $197 <ArrowIcon />
+            Get the Web App — $49 <ArrowIcon />
           </Button>
           <Button href="#consulting" variant="ghost">
             Work With Me <ArrowIcon />
