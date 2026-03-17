@@ -60,6 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link rel="alternate" type="text/markdown" href="https://www.practicalinformatics.com/llms.txt" title="LLM-readable content" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

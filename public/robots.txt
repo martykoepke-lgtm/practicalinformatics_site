@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.practicalinformatics.com/sitemap.xml
+
+# AI content file
+# See https://llmstxt.org for specification
+# LLMs-Txt: https://www.practicalinformatics.com/llms.txt
