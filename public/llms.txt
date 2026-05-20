@@ -44,7 +44,6 @@ Scrum Master). Based in Mokelumne Hill, California.
 - /                      Home — overview and primary call to action
 - /about                 About Marty, principles, background
 - /time-back-assessment  Full detail on the offer, what you get, cost, FAQ
-- /blog                  Notes from the foothills (writing on AI and process)
 - /contact               Book a free conversation; service area
 - /privacy               Privacy policy
 - /terms                 Terms of service

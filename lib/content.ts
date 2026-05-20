@@ -24,7 +24,8 @@ export const NAV: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Assessment", href: "/time-back-assessment", emphasized: true },
-  { label: "Blog", href: "/blog" },
+  // Blog is intentionally hidden from nav until the first posts ship.
+  // To re-enable, add: { label: "Blog", href: "/blog" }
   { label: "Contact", href: "/contact" },
 ];
 

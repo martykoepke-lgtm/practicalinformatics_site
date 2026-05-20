@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/content";
+import { getAllPostMeta } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const primary = ["", "/about", "/time-back-assessment", "/blog", "/contact"];
+  // /blog only appears in the sitemap once at least one post exists.
+  const blogRoutes = getAllPostMeta().length > 0 ? ["/blog"] : [];
+  const primary = ["", "/about", "/time-back-assessment", ...blogRoutes, "/contact"];
   const policy = ["/privacy", "/terms", "/cookies", "/acceptable-use", "/returns"];
   return [
     ...primary.map((path) => ({

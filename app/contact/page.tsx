@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/motion/Reveal";
-import ContactForm from "@/components/sections/ContactForm";
 import { META, CONTACT, SITE } from "@/lib/content";
 import { CONTACT_EMAIL, BOOK_CALL_HREF, BOOK_CALL_LABEL } from "@/lib/links";
 
@@ -81,20 +80,6 @@ export default function ContactPage() {
               {CONTACT_EMAIL}
             </a>
           </p>
-        </Reveal>
-      </Section>
-
-      {/* Form — light */}
-      <Section tone="cream" width="narrow">
-        <Reveal>
-          <h2 className="text-2xl text-forest sm:text-3xl">Or send a note</h2>
-          <p className="mt-3 text-moss">
-            For anything that isn&apos;t scheduling — questions, ideas, or just
-            saying hello.
-          </p>
-        </Reveal>
-        <Reveal className="mt-8">
-          <ContactForm />
         </Reveal>
       </Section>
 
