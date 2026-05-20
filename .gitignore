@@ -1,8 +1,38 @@
+# dependencies
 node_modules
+
+# next.js
 .next
+out
+next-env.d.ts.bak
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# env files
+.env
 .env.local
 .env*.local
+
+# claude code / local tooling
+.claude
+images/
+
+# project archives + working files
 _archive/
 Free Toolkits/
 *.docx
 *.docx.md
+
+# os
+.DS_Store
+Thumbs.db
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log

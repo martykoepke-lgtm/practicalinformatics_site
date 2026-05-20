@@ -1,200 +1,141 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { navLinks, links } from '@/lib/content';
-
-const pulseLetters = ['P', 'U', 'L', 'S', 'E'];
-const pulseSections = ['method', 'toolkit', 'consulting', 'about', 'faq'];
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { NAV } from "@/lib/content";
+import { MenuIcon, CloseIcon } from "@/components/ui/Icons";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [activeLetters, setActiveLetters] = useState<boolean[]>([false, false, false, false, false]);
-
-  // On non-homepage routes, prefix anchor links with / so they navigate home first
-  const resolveHref = (href: string) => {
-    if (href.startsWith('#') && pathname !== '/') {
-      return `/${href}`;
-    }
-    return href;
-  };
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setHidden(currentScrollY > 100 && currentScrollY > lastScrollY);
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
-  // Intersection Observer for PULSE tracker
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    pulseSections.forEach((sectionId, index) => {
-      const el = document.getElementById(sectionId);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          setActiveLetters((prev) => {
-            const next = [...prev];
-            next[index] = entry.isIntersecting;
-            return next;
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleLinkClick = () => {
-    setMenuOpen(false);
-    document.body.style.overflow = '';
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    document.body.style.overflow = menuOpen ? '' : 'hidden';
-  };
-
   return (
-    <>
-      <motion.nav
-        className="fixed top-4 left-1/2 z-50 flex w-[92%] max-w-5xl -translate-x-1/2 items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-3 backdrop-blur-xl"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{
-          y: hidden ? -100 : 0,
-          opacity: hidden ? 0 : 1,
-        }}
-        transition={{ duration: 0.3 }}
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-tan/60 bg-cream/90 backdrop-blur-md"
+          : "border-b border-transparent bg-cream"
+      }`}
+    >
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3"
       >
-        {/* Logo */}
-        <a href="/" className="relative h-8 w-44 flex-shrink-0">
+        <Link href="/" aria-label="Practical Informatics — home" className="shrink-0">
           <Image
-            src="/images/logo-long.png"
+            src="/images/logo-full.png"
             alt="Practical Informatics"
-            fill
-            className="object-contain object-left"
+            width={200}
+            height={150}
             priority
+            className="h-11 w-auto"
           />
-        </a>
+        </Link>
 
-        {/* PULSE Tracker */}
-        <div className="hidden items-center gap-1 md:flex">
-          {pulseLetters.map((letter, i) => (
-            <span
-              key={letter}
-              className={`font-mono text-xs font-bold transition-all duration-300 ${
-                activeLetters[i]
-                  ? i === 3
-                    ? 'text-burnt drop-shadow-[0_0_8px_rgba(230,126,34,0.6)]'
-                    : 'text-steel drop-shadow-[0_0_8px_rgba(74,144,226,0.6)]'
-                  : 'text-slate-600'
-              }`}
-            >
-              {letter}
-            </span>
-          ))}
-        </div>
-
-        {/* Desktop Links */}
-        <div className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={resolveHref(link.href)}
-              className="text-sm text-slate-400 transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href={links.bookACall}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg bg-burnt px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-burnt-dim hover:shadow-[0_4px_16px_rgba(230,126,34,0.3)]"
-          >
-            Book a Call
-          </a>
-        </div>
-
-        {/* Hamburger */}
-        <button
-          className="flex flex-col gap-1.5 md:hidden"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <motion.span
-            className="block h-0.5 w-6 bg-white"
-            animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-          />
-          <motion.span
-            className="block h-0.5 w-6 bg-white"
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-          />
-          <motion.span
-            className="block h-0.5 w-6 bg-white"
-            animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-          />
-        </button>
-      </motion.nav>
-
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {menuOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={handleLinkClick}
-            />
-            <motion.div
-              className="fixed right-0 top-0 z-40 flex h-full w-72 flex-col gap-6 border-l border-white/10 bg-slate-950/95 px-8 pt-24 backdrop-blur-xl"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            >
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={resolveHref(link.href)}
-                  className="text-lg text-slate-300 transition-colors hover:text-white"
-                  onClick={handleLinkClick}
+        {/* Desktop nav */}
+        <ul className="hidden items-center gap-8 md:flex">
+          {NAV.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+            if (item.emphasized) {
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className="rounded-full bg-forest px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-forest-dark"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            }
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-sm transition-colors hover:text-forest ${
+                    active
+                      ? "text-forest underline decoration-gold decoration-2 underline-offset-8"
+                      : "text-moss"
+                  }`}
                 >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href={links.bookACall}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 rounded-lg bg-burnt px-4 py-3 text-center font-semibold text-white"
-                onClick={handleLinkClick}
-              >
-                Book a Call
-              </a>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          className="text-forest md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? (
+            <CloseIcon className="h-7 w-7" />
+          ) : (
+            <MenuIcon className="h-7 w-7" />
+          )}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {open && (
+        <div
+          id="mobile-menu"
+          className="border-t border-tan/60 bg-cream md:hidden"
+        >
+          <ul className="mx-auto flex max-w-6xl flex-col px-6 py-2">
+            {NAV.map((item) => {
+              const active =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={`block py-3 text-base ${
+                      item.emphasized
+                        ? "font-medium text-forest"
+                        : active
+                          ? "text-forest"
+                          : "text-moss"
+                    }`}
+                  >
+                    {item.label}
+                    {item.emphasized && (
+                      <span className="ml-2 align-middle text-xs uppercase tracking-wide text-gold-dark">
+                        Start here
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </header>
   );
 }

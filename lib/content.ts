@@ -1,346 +1,310 @@
-// All PULSE Framework site content as typed constants
+/**
+ * Single source of truth for all site copy.
+ * Text is verbatim from the build handoff document. Components import
+ * from here so copy is never hardcoded in JSX.
+ */
 
-export const siteConfig = {
-  name: 'Practical Informatics',
-  tagline: 'PULSE Framework — Healthcare Technology Consulting',
-  url: 'https://www.practicalinformatics.com',
-  author: 'Marty Koepke',
-  authorTitle: 'Healthcare Technology Consultant',
+export const SITE = {
+  name: "Practical Informatics",
+  legalName: "Practical Informatics LLC",
+  url: "https://www.practicalinformatics.com",
+  tagline: "Helping foothills businesses buy back their time.",
+  location: "Mokelumne Hill, California",
+  serviceArea: ["Calaveras County", "Amador County", "Tuolumne County"],
+  serviceAreaText: "Serving Calaveras, Amador, and Tuolumne counties",
 } as const;
 
-export const links = {
-  bookACall: 'https://tally.so/r/9qNRM5',
-  accelerator: 'https://tally.so/r/xXVPgo',
-  webApp: 'https://martypractical.gumroad.com/l/ebjqkf',
-  methodology: '#methodology',
-  community: '#',
-  linkedin: 'https://www.linkedin.com/in/marty-koepke/',
-  book: 'https://a.co/d/08QnZGaP',
-  ehrDemo: 'https://sophiav2.vercel.app/',
-  vytalPathDemo: 'https://vytalpathdemo.vercel.app/',
-} as const;
+export type NavItem = {
+  label: string;
+  href: string;
+  emphasized?: boolean;
+};
 
-export const navLinks = [
-  { label: 'PULSE', href: '/pulse' },
-  { label: 'Web App', href: '#toolkit' },
-  { label: 'Work With Me', href: '#consulting' },
-  { label: 'About', href: '#about' },
-  { label: 'FAQ', href: '#faq' },
-] as const;
-
-export const stats = [
-  { number: '15+', label: 'Years in Healthcare' },
-  { number: '2,200+', label: 'Care Sites' },
-  { number: '25,000+', label: 'Clinicians Supported' },
-] as const;
-
-export const hero = {
-  eyebrow: 'The PULSE Framework',
-  headline: 'The bridge between the problem and the right solution.',
-  subtitle: 'Technology projects fail in the gap between what leadership wants and what\'s actually happening. The PULSE Framework closes that gap — five phases that start with observation, not assumptions. Built from 15 years of healthcare informatics.',
-  ctas: [
-    { label: 'Read the PULSE Methodology', variant: 'shimmer' as const, action: 'methodology-modal' as const },
-    { label: 'Find Where AI Fits', href: '/pulse', variant: 'spring' as const },
-    { label: 'Get the Web App — $49', href: 'https://martypractical.gumroad.com/l/ebjqkf', variant: 'primary' as const },
-    { label: 'Work With Me', href: '#consulting', variant: 'ghost' as const },
-  ],
-} as const;
-
-export const pattern = {
-  eyebrow: 'The Pattern',
-  headline: 'This is how technology projects fail.',
-  paragraphs: [
-    'A leader sees a demo. Someone says "we need that." A team gets assembled. Requirements get written based on assumptions. Technology gets purchased. It doesn\'t fit how the work actually happens. Staff build workarounds. Leadership blames the tool. The cycle repeats.',
-    'The gap is never between the technology and the requirements. The gap is between the requirements and reality.',
-  ],
-  pullquote: 'After 15 years and hundreds of implementations inside one of the nation\'s largest health systems, I found the same pattern: 50–60% of "technology problems" are actually training or process problems wearing a technology costume.',
-  closing: 'The fix isn\'t better technology. It\'s a better framework.',
-} as const;
-
-export interface PulsePhase {
-  id: string;
-  letter: string;
-  title: string;
-  subtitle: string;
-  color: string;
-  description: string;
-  checkpoint: string;
-}
-
-export const pulsePhases: PulsePhase[] = [
-  {
-    id: 'problem',
-    letter: 'P',
-    title: 'Problem',
-    subtitle: "What's actually broken — and for whom?",
-    color: '#4A90E2',
-    description: "Before anything else, define the problem in plain language. Not the vendor's language. Not the executive summary version. The version that the person doing the work would recognize. Identify stakeholders, classify risk, and determine if AI governance applies.",
-    checkpoint: 'Is the problem clearly defined and worth pursuing?',
-  },
-  {
-    id: 'understand',
-    letter: 'U',
-    title: 'Understand',
-    subtitle: 'What is actually happening?',
-    color: '#4A90E2',
-    description: "Go watch the work happen. Document every step, every workaround, every pain point. Categorize issues as People, Process, or Platform. Identify what can be fixed today. Map how data actually moves. Capture the questions that need answers before anyone designs a solution.",
-    checkpoint: 'Do we understand reality well enough to define success?',
-  },
-  {
-    id: 'landscape',
-    letter: 'L',
-    title: 'Landscape',
-    subtitle: "What should be happening — and what's the gap?",
-    color: '#4A90E2',
-    description: "Align leadership on the desired state in operational terms, not vendor language. Translate vague outcomes into measurable success criteria. Map every gap between current and desired state. Classify each gap as People, Process, or Platform. Prioritize by impact and effort.",
-    checkpoint: 'Is the gap real, and is the proposed direction justified?',
-  },
-  {
-    id: 'solve',
-    letter: 'S',
-    title: 'Solve',
-    subtitle: 'How do we close the gap?',
-    color: '#E67E22',
-    description: "Convert gaps into concrete action plans — separated by audience. People actions go to training leads. Process actions go to operations. Platform actions go to IT. Translate the same solution into language each stakeholder group understands. Document governance before go-live.",
-    checkpoint: 'Has the solution been validated by the people who do the work, lead it, and build it?',
-  },
-  {
-    id: 'enable',
-    letter: 'E',
-    title: 'Enable',
-    subtitle: 'How do we make it stick?',
-    color: '#4A90E2',
-    description: "Implementation without adoption is just expensive decoration. Enable covers readiness checks, training design, communication planning, and post-implementation monitoring. Track outcomes at 30, 60, and 90 days. Monitor for equity disparities and AI drift. Close the loop.",
-    checkpoint: 'Are we monitoring outcomes and ready to adjust?',
-  },
+export const NAV: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Assessment", href: "/time-back-assessment", emphasized: true },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
-export const startHere = {
-  eyebrow: 'Start Here',
-  headline: 'Start free. Go deeper when you\'re ready.',
-  subtitle: 'The PULSE Framework gives you everything you need to run a structured technology evaluation — from understanding the problem to proving the solution worked.',
-  methodology: {
-    title: 'The PULSE Methodology Guide',
-    description: 'Before the tools, there\'s the philosophy. The PULSE Methodology Guide defines the principles, governance model, and decision logic behind every phase. If you want to understand why PULSE works the way it does, start here.',
-    note: 'Free. No email required.',
+/** Policy routes, also surfaced in the footer.
+ *  GetTerms document slugs confirmed from the dashboard snippets. */
+export const POLICIES: { label: string; href: string; gettermsSlug: string }[] = [
+  { label: "Privacy", href: "/privacy", gettermsSlug: "privacy" },
+  { label: "Terms", href: "/terms", gettermsSlug: "terms-of-service" },
+  { label: "Cookies", href: "/cookies", gettermsSlug: "cookies" },
+  { label: "Acceptable Use", href: "/acceptable-use", gettermsSlug: "acceptable-use" },
+  { label: "Returns", href: "/returns", gettermsSlug: "return" },
+];
+
+export const META = {
+  home: {
+    title:
+      "Practical Informatics | Helping foothills businesses buy back their time",
+    description:
+      "Practical Informatics helps small businesses in Calaveras, Amador, and Tuolumne counties reclaim their time with AI and smarter process.",
   },
-  webApp: {
-    title: 'The PULSE Web App',
-    tagline: 'Five phases. One spreadsheet. Every initiative organized from problem to proof.',
-    description: 'A structured five-phase path from problem definition to 90-day proof. The PULSE Web App automatically surfaces whether pain points are People, Process, or Platform issues — so you fix the right thing first. Technology comes last, and only when justified by evidence.',
-    price: '$49',
-    priceNote: 'One-time purchase. No subscription.',
-    features: [
-      { title: 'Key Insight Engine', description: 'Auto-calculates your People vs. Process vs. Platform breakdown — most teams discover the majority of their pain points aren\'t technology problems at all.' },
-      { title: 'Structured Observation', description: 'Gemba-style observation sessions with confidence scoring, workflow step mapping, and pain point cataloging with severity, frequency, and waste type.' },
-      { title: 'Analysis to Action', description: 'Three-lane action plans — People (training, roles), Process (workflow redesign, SOPs), Platform (technology) — each with owners and timelines.' },
-      { title: 'Proof It Worked', description: '30/60/90-day outcome tracking against predefined success metrics. Control plans ensure improvements stick.' },
-    ],
-    coreInsight: '50\u201370% of \u201ctechnology problems\u201d are actually People or Process problems. The PULSE Web App helps you see this before you spend.',
+  about: {
+    title: "About Marty Koepke | Practical Informatics",
+    description:
+      "Fifteen years inside health systems making complicated work simpler — now helping foothills small businesses do the same.",
+  },
+  assessment: {
+    title: "The Time Back Assessment | Practical Informatics",
+    description:
+      "An on-site assessment for foothills small businesses. Identify where your time is going, fix one quick win before we're done. $1,500.",
+  },
+  blog: {
+    title: "Notes from the Foothills | Practical Informatics",
+    description:
+      "Practical writing on AI, process, and reclaiming time for small business owners in the California foothills.",
+  },
+  contact: {
+    title: "Contact | Practical Informatics",
+    description:
+      "Book a free 20-minute conversation about your business. Practical Informatics serves Calaveras, Amador, and Tuolumne counties.",
   },
 } as const;
 
-export const twoLanes = {
-  eyebrow: 'Two Ways In',
-  headline: 'Organizations need both lanes.',
-  subtitle: 'Every organization — especially in healthcare — needs two AI strategies running simultaneously. The PULSE Framework serves both.',
-  lanes: [
+/* ===== HOME ===== */
+export const HOME = {
+  /** Two sentences. Mobile hero shows the first; sm+ shows both. */
+  heroIntro: [
+    "If you run a small business in the foothills and you're working too many hours on tasks that shouldn't take this long — you're in the right place.",
+    "I help local business owners look at where their time is actually going, and use AI and smarter process to get some of it back.",
+  ],
+  problem: [
+    "Most small business owners I meet are working fifty or sixty hours a week, and spending half of that time on tasks they shouldn't have to do themselves. Copying information between systems. Answering the same email for the hundredth time. Chasing the same details over and over. Keeping track of things by memory because no tool quite fits.",
+    "The hard part isn't the work itself. It's that nobody has stepped back to look at how the work flows in the first place. Once you do — once you actually map where the time goes — most of it turns out to be fixable.",
+  ],
+  whatIDo: [
     {
-      id: 'org',
-      title: 'Lane 1: Integrate Technology the Right Way',
-      description: "Your organization is buying AI tools, implementing new platforms, and modernizing workflows. The question isn't whether to adopt — it's whether you're doing the work before the purchase that determines whether it actually works.",
-      audience: 'For: CIOs, VPs, Directors, Operations Leaders',
-      cta: { label: 'Work With Me', href: '#consulting' },
-      accentColor: '#4A90E2',
+      icon: "pin",
+      headline: "I come on-site",
+      body: "A 90-minute visit in your business, watching how the work actually happens. No recommendations on the day — just listening, observing, and learning.",
     },
     {
-      id: 'builder',
-      title: 'Lane 2: Build With AI Yourself',
-      description: "The barrier to entry for software development is essentially zero. Domain experts — informaticists, project managers, operations leaders — can now build real applications using AI-assisted tools. The skill isn't coding. It's knowing what to build and why.",
-      audience: 'For: Domain experts, informaticists, project managers, curious professionals',
-      cta: { label: 'Join From Curious to Capable', href: '#community' },
-      accentColor: '#E67E22',
+      icon: "lightbulb",
+      headline: "I do the thinking",
+      body: "A written Time Back Report, delivered within seven business days, with the patterns I observed and a prioritized plan to fix them.",
+    },
+    {
+      icon: "check",
+      headline: "I implement one fix",
+      body: "Before we're done, we'll roll up our sleeves and get one quick win in place — so you don't just have a plan, you have momentum.",
+    },
+  ],
+  differentiation: {
+    eyebrow: "How I think about this",
+    headline: "I'm not another AI guru. I'm here to fix the work.",
+    body: 'Most "AI transformation" advice starts with the tool and works backwards to the problem. I work the other way around. I look at where information moves through your business — customer intake, data processing, day-to-day admin — and find what takes too long, what feels too manual, and what just plain annoys someone. Then we fix it. Sometimes the answer is AI. Often it\'s smarter process, a better tool, or maybe something custom that is made just for you. I\'ll tell you plainly which is which.',
+    closing:
+      "If the work wearing you out is information work, you're in the right place.",
+  },
+  whoIAm: [
+    "Hi, I'm Marty.",
+    "I spent fifteen years inside health systems figuring out why smart, hard-working people were spending half their day on busywork — or doing work completely manually — instead of doing what they were actually good at.",
+    "My family moved to the foothills five years ago, and we absolutely love it. The people I want to serve now are my neighbors. This community helped train my two sons for futures of their own. It helped facilitate my oldest son's engagement. They cut my hair. I eat their amazing food.",
+    "We all have gifts. Mine is standing between end users and the technology they need to use — and I know how to leverage AI.",
+  ],
+} as const;
+
+/* ===== ABOUT ===== */
+export const ABOUT = {
+  heroHeadline:
+    "Fifteen years inside health systems. Now serving the neighbors who serve us.",
+  story: [
+    "My family moved to the foothills five years ago, and we absolutely love it. The fifteen years before that I spent inside health systems, trying to figure out why smart, hard-working people were spending half their day on busywork — or doing work completely manually — instead of doing what they were actually good at.",
+    "My background is in clinical informatics. Fifteen years helping health systems figure out where the work was getting stuck and how to make it flow better. The tools were different — electronic health records, clinical workflows, regulatory systems — but the problem was the same: smart people drowning in busywork because nobody had stopped to look at how the work actually moved.",
+    "What I learned, over those fifteen years, is that almost no organization has actually mapped where its own time goes. We feel like we're drowning, blame ourselves, work longer hours, and don't step back to ask if the work is organized right in the first place. That's true in a health system. It's true in a winery, a contractor's shop, an accounting practice, a small law firm.",
+    "What's changed in the last couple of years is what's possible to do about it. AI didn't make the pattern — the pattern's been there forever. But AI made a lot of the fixes much easier, if you know what to fix in the first place. Most of the “AI for small business” content out there skips that question. I don't.",
+    "These are the people I want to serve. My neighbors. The community that helped train my two sons for futures of their own, that helped facilitate my oldest son's engagement, that cuts my hair, that feeds me their amazing food. I'm based in Mokelumne Hill, and I work with small businesses across Calaveras, Amador, and Tuolumne counties. We all have gifts. Mine is standing between end users and the technology they need to use — and I know how to leverage AI.",
+  ],
+  principles: [
+    {
+      headline: "Process before tools",
+      body: "Most “AI problems” are actually process problems wearing a costume. I look at how the work flows before I recommend any technology — sometimes the answer is AI, sometimes it's a smarter process and no AI at all.",
+    },
+    {
+      headline: "AI only where it belongs",
+      body: "AI is a tool, not a religion. I use it where it's genuinely the right answer, and I'll tell you plainly when it isn't.",
+    },
+    {
+      headline: "Local first, always",
+      body: "I come on-site. I shake your hand. I watch the work happen. The foothills run on trust and proximity, and remote consulting can't replace that.",
+    },
+    {
+      headline: "Plain language, every time",
+      body: "No jargon, no buzzwords, no hundred-page reports nobody reads. If I can't explain a recommendation to you in plain English, it isn't a recommendation worth making.",
+    },
+  ],
+  credentials:
+    "Master of Health Administration. System Clinical Informaticist at CommonSpirit Health, working across 2,500+ ambulatory care facilities. Author of Between the Clicks: The Hidden Work of Healthcare Informatics. Lean Six Sigma Green Belt (Black Belt in progress). SAFe 6.0 Agilist. Certified Scrum Master.",
+  built: [
+    {
+      id: "ehr-governance",
+      name: "EHR Governance Assistant",
+      subtitle: "Process navigator and AI assistant for EHR governance",
+      blurb:
+        "An intuitive process navigator that breaks down each governance stage into clear steps, combined with an AI assistant that provides real-time guidance through the governance process.",
+      description:
+        "A working prototype for the everyday decisions that shape an EHR over time — build approvals, change requests, governance votes, and the policy choices that usually get lost between meetings. The navigator walks teams through each stage and the assistant answers questions in plain language as they go. Designed and shipped end to end.",
+      tags: ["React", "AI Integration", "Process Design"] as readonly string[],
+      images: [],
+      launchUrl: "https://sophiav2.vercel.app/",
+      launchLabel: "Launch demo",
+    },
+    {
+      id: "governiq",
+      name: "GovernIQ",
+      subtitle: "Governance and decision-tracking, built from a real workflow",
+      blurb:
+        "A complete operating surface for governance work — incoming requests captured, routed through the right approvers, tracked over time, and turned into the audit trail nobody usually has.",
+      description:
+        "Built from a real workflow at scale, GovernIQ replaces the email chains and spreadsheets that most governance teams live in. Requests come in, get classified, route to the right decider, and leave a clean record everyone can point to later. Designed and shipped end to end.",
+      tags: ["React", "Workflow Design", "Audit & Compliance"] as readonly string[],
+      images: [
+        "/images/governiq/Screenshot 2025-11-28 200134.png",
+        "/images/governiq/Screenshot 2025-11-28 200224.png",
+        "/images/governiq/Screenshot 2025-11-30 100848.png",
+        "/images/governiq/Screenshot 2025-11-30 100902.png",
+        "/images/governiq/Screenshot 2025-11-30 101040.png",
+      ],
+      launchUrl: null as string | null,
+      launchLabel: "Launch demo",
     },
   ],
 } as const;
 
-export const workWithMe = {
-  eyebrow: 'Work With Me',
-  headline: 'Work With Me',
-  paragraphs: [
-    'I partner with organizations to implement technology the right way — using the PULSE Framework. Every engagement follows the same five phases, scaled to the initiative.',
-    'Whether you need a focused assessment of a single initiative or ongoing methodology support across your enterprise, it starts with a conversation.',
+/* ===== TIME BACK ASSESSMENT ===== */
+export const ASSESSMENT = {
+  heroHeadline: "The Time Back Assessment",
+  heroSubhead:
+    "A clear-eyed look at where your time is actually going — and a plain-English plan to get some of it back.",
+  whatsDifferent: [
+    "Most AI assessments happen on a Zoom call. This one happens in your business.",
+    "I come on-site, watch how the work actually flows, listen more than I talk, and explicitly don't give recommendations in the moment — because the work deserves real thinking, not the first thing that comes to mind.",
+    "You'll get the recommendations in writing, in a report I can stand behind. And before we're done, I'll roll up my sleeves and implement one of the quick wins with you — so you don't just have a plan, you have momentum.",
   ],
-  ctaNote: 'No commitment. No pitch deck. Just a conversation about what you\'re trying to solve.',
+  reportBullets: [
+    "The 3–5 biggest time leaks I observed, named in plain language",
+    "For each one: what's causing it, what it's costing you, and what to do about it",
+    "A prioritized list of quick wins — things implementable in under a day each",
+    "A short “Bigger Opportunities” section — deeper changes worth a separate conversation",
+    "Specific tool recommendations where relevant, with honest notes on whether AI is actually the right answer",
+  ],
+  /* The Path — the 5-step client journey (repurposed PULSE interaction) */
+  path: [
+    {
+      id: "conversation",
+      step: "01",
+      title: "A free 20-minute fit conversation",
+      short: "Free fit call",
+      detail:
+        "We'll talk for twenty minutes about your business and figure out together whether the assessment is the right next step. No pitch, no pressure.",
+    },
+    {
+      id: "onsite",
+      step: "02",
+      title: "A 90-minute on-site visit",
+      short: "On-site visit",
+      detail:
+        "I'll meet you and any key team members, watch the work happen, ask questions, and capture our conversation with an AI notetaking tool so I can focus on listening rather than scribbling notes. I'll be in observation mode — no recommendations on the day. I'll tell you what I'm seeing only after I've had time to think about all of it together.",
+    },
+    {
+      id: "report",
+      step: "03",
+      title: "A written Time Back Report, within 7 business days",
+      short: "Time Back Report",
+      detail:
+        "The report includes the 3–5 biggest time leaks I observed named in plain language; for each one, what's causing it, what it's costing you, and what to do about it; a prioritized list of quick wins implementable in under a day each; a short “Bigger Opportunities” section for deeper changes worth a separate conversation; and specific tool recommendations where relevant, with honest notes on whether AI is actually the right answer.",
+    },
+    {
+      id: "followup",
+      step: "04",
+      title: "A 30-minute follow-up call",
+      short: "Follow-up call",
+      detail:
+        "We walk through the report together, answer questions, and pick which quick win we'll implement.",
+    },
+    {
+      id: "quickwin",
+      step: "05",
+      title: "One implemented quick win",
+      short: "Quick win, built",
+      detail:
+        "Up to 3 hours of my time, hands-on, getting one real thing built or configured in your business. I'll also give you a short written walkthrough of what we built, so you and your team can use it confidently after I leave.",
+    },
+  ],
+  cost: {
+    headline: "$1,500 flat. Includes everything above.",
+  },
+  forYou:
+    "Owners of small businesses (typically 1–25 employees) in Calaveras, Amador, or Tuolumne counties who feel like they're working more hours than the business should require — and who want a partner who'll do the thinking with them, not just hand them a report and walk away.",
+  notForYou:
+    "Owners looking for someone to just install AI tools without examining the underlying process. Businesses where leadership isn't open to changing how things are done. Anyone who wants the work done remotely — this one is on-site, in your business, by design.",
+  noteOnAI: [
+    "I use AI throughout this work. To help analyze what I observe. To draft your report. To handle the parts of the work that AI is actually good at.",
+    "The reason I tell you this is because part of what you're hiring me for is the judgment about which parts of your business AI should touch and which parts it shouldn't. I won't recommend it where it doesn't belong. I will use it where it does.",
+  ],
+  faq: [
+    {
+      q: "How long does the whole thing take from start to finish?",
+      a: "About four weeks. One week to schedule the on-site, seven business days for me to deliver the report, then a 30-minute follow-up call and the quick win implementation within two weeks after that.",
+    },
+    {
+      q: "What if I'm outside Calaveras, Amador, or Tuolumne counties?",
+      a: "Reach out anyway — we can talk about it. The on-site format is the heart of this offer, so a remote version isn't equivalent, but I can occasionally make exceptions for businesses in the broader region.",
+    },
+    {
+      q: "What if I don't see a quick win I want to implement?",
+      a: "That happens rarely, but it happens. If the best opportunities in your business are all bigger than a 3-hour fix, I'll credit that time toward the first phase of a larger engagement if you choose to move forward, or you can use it as an extended advisory call to map out the implementation plan together.",
+    },
+    {
+      q: "Do you sign NDAs?",
+      a: "Yes, if you'd like one. I have a simple mutual NDA I can send you, or I'm happy to sign yours.",
+    },
+    {
+      q: "What does the on-site visit actually look like?",
+      a: "Mostly me watching, asking questions, and listening. I'll want to see how new work comes in, how it moves through your business, where it gets stuck, and how things get tracked. I'll talk with you and any key team members, but the visit isn't a formal interview — it's closer to a working shadow day.",
+    },
+    {
+      q: "Will the recording be private?",
+      a: "Yes. The AI notetaking tool I use is HIPAA-compliant and SOC2 certified, and recordings are used only to produce your report. I'll ask for your explicit consent before starting any recording. If you'd prefer no recording, I'll take notes the old-fashioned way.",
+    },
+    {
+      q: "What happens if the assessment doesn't go well?",
+      a: "If you read the report and feel it doesn't deliver what I promised, tell me. I'll refund part or all of the fee. I'd rather have a refunded client who tells the truth about their experience than a frustrated client who never says anything.",
+    },
+    {
+      q: "How do I prepare for the on-site?",
+      a: "You don't need to. The whole point of the on-site is to see your business as it actually runs, not as a curated version. Don't clean up, don't prepare slides, don't pull together documentation. Just go about your day and let me observe.",
+    },
+  ],
+  finalCta:
+    "If this sounds like a fit, the next step is a free 20-minute conversation. We'll talk about your business and figure out together whether the assessment is right for you.",
 } as const;
 
-export const community = {
-  eyebrow: 'Lane 2',
-  headline: 'From Curious to Capable.',
-  comingSoon: true,
-  intro: "You're not behind on AI. You're mislabeled. If your career has been translating between the people who need something and the people who build it — you're already doing the hardest part. AI just makes you faster.",
-  learnItems: [
-    'How to write specifications clear enough that AI can build from them',
-    'How to evaluate, refine, and iterate on AI-generated output',
-    'How to build real applications (dashboards, automations, knowledge bases) with no-code and AI-assisted tools',
-    'How to apply the PULSE Framework to your own projects',
-    'How to move from consumer of technology to creator of solutions',
-  ],
-  audience: 'Clinical informaticists. Project managers. Business analysts. Operations leaders. Anyone with domain expertise and the curiosity to build.',
-  accelerator: {
-    title: 'Want hands-on guidance?',
-    description: 'The 1:1 App Accelerator is an 8-week program where you build your first AI-powered application with direct coaching. From idea to deployed product.',
-    price: '$2,000',
-  },
+/* ===== SHARED FINAL CTA (Home + About) ===== */
+export const FINAL_CTA = {
+  headline: "Ready to see where your time is going?",
+  body: "A free 20-minute conversation is the first step. No pitch, no pressure — just a real conversation about your business and whether the Time Back Assessment is the right next step.",
 } as const;
 
-export interface Project {
-  id: string;
-  title: string;
-  subtitle: string;
-  cardDescription: string;
-  tags: string[];
-  demoUrl?: string;
-  screenshots?: string[];
-  truth: string;
-  translation: string;
-  learned: string;
-  copyright?: string;
-}
-
-export const projects: Project[] = [
-  {
-    id: 'activiteez',
-    title: 'Activiteez',
-    subtitle: 'Activity and resource management for multi-location organizations',
-    cardDescription: 'Scheduling, inventory tracking, attendance, and multi-building data isolation. Built using the PULSE methodology with AI-assisted development.',
-    tags: ['React', 'TypeScript', 'Supabase', 'Multi-tenant'],
-    screenshots: [
-      '/images/activiteez/Screenshot 2025-11-30 111812.png',
-      '/images/activiteez/Screenshot 2025-11-30 114003.png',
-      '/images/activiteez/Screenshot 2025-11-30 111841.png',
-      '/images/activiteez/Screenshot 2025-11-30 111855.png',
-    ],
-    truth: "Senior living facilities manage dozens of recurring activities across multiple buildings — often with spreadsheets, paper calendars, and guesswork about supplies.",
-    translation: "A platform that handles scheduling, inventory tracking with automatic consumption, attendance management, and multi-building data isolation. Built for the activity director who doesn't have an IT department.",
-    learned: "Multi-tenant architecture sounds abstract until you're debugging why Building A can see Building B's bingo cards. I learned to think in contexts — and to let AI help me catch the edge cases I'd miss.",
-  },
-  {
-    id: 'governiq',
-    title: 'GovernIQ',
-    subtitle: 'Enterprise work management and capacity planning',
-    cardDescription: 'Configurable initiative tracking, governance workflows, and real-time capacity analytics. Fully custom-built.',
-    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL'],
-    screenshots: [
-      '/images/governiq/Screenshot 2025-11-30 100902.png',
-      '/images/governiq/Screenshot 2025-11-30 100848.png',
-      '/images/governiq/Screenshot 2025-11-30 101040.png',
-      '/images/governiq/Screenshot 2025-11-28 200224.png',
-    ],
-    truth: "Organizations tracking dozens of initiatives across multiple teams struggle to see who's overloaded, what's stuck, and where to focus. Spreadsheets break down. Visibility disappears.",
-    translation: "A configurable platform for initiative tracking, governance workflows, and real-time capacity analytics. Fully customizable fields, weights, and branding — no code changes required.",
-    learned: "The hardest part of enterprise software isn't the features — it's making it flexible enough to fit how different organizations actually work. I built a system where admins can change everything without touching code.",
-    copyright: '© 2025 Marty Koepke. U.S. Copyright Registration Case #1-15031668531. Developed independently using personal resources.',
-  },
-  {
-    id: 'sophia',
-    title: 'EHR Governance Assistant',
-    subtitle: 'Process navigator and AI assistant for EHR governance',
-    cardDescription: 'An intuitive process navigator that breaks down each governance stage into clear steps, combined with an AI assistant that provides real-time guidance through the governance process.',
-    tags: ['React', 'AI Integration', 'Process Design'],
-    demoUrl: 'https://sophiav2.vercel.app/',
-    truth: "Enterprise EHR governance involves multiple committees, complex approval workflows, and dozens of stakeholders. People get lost trying to navigate the process.",
-    translation: "An intuitive process navigator that breaks down each governance stage into clear steps, combined with an AI assistant that answers questions in plain language.",
-    learned: 'The best documentation is the kind people actually use. I learned to design for the person who\'s frustrated and just wants to know "what happens next?"',
-  },
-  {
-    id: 'vytalpath',
-    title: 'VytalPath Academy',
-    subtitle: 'Training platform for new healthcare staff',
-    cardDescription: '1,000+ healthcare terms in plain language, step-by-step workflows, HIPAA modules, and smart search. Accessible, practical, and designed for the first 90 days.',
-    tags: ['React', 'TypeScript', 'Supabase', 'Mobile-First'],
-    demoUrl: 'https://vytalpathdemo.vercel.app/',
-    truth: "New front office staff face an overwhelming first day — medical jargon, insurance workflows, HIPAA compliance, clinic procedures. The result is anxiety, mistakes, and high turnover.",
-    translation: "A training and reference platform with 1,000+ healthcare terms in plain language, step-by-step workflows, HIPAA modules, and smart search. Accessible on phone or desktop.",
-    learned: 'Training isn\'t about dumping information — it\'s about being there at the moment someone needs an answer. I built for the person Googling "what does PRN mean" during their first week.',
-  },
-];
-
-export const background = {
-  eyebrow: 'Background',
-  headline: 'Healthcare is where I learned this.',
-  bio: [
-    "I spent 15 years inside one of the nation's largest nonprofit health systems — 140+ hospitals, 2,200+ ambulatory care sites, 25,000+ clinicians across multiple EHR platforms. My work spans governance facilitation, enterprise standards, and the kind of workflow analysis that only comes from watching people do the work.",
-    "Four years in ICU critical care taught me what it feels like when technology doesn't work at the bedside. Fifteen years in clinical informatics taught me why it keeps happening.",
-    "The PULSE Framework isn't something I invented in a workshop. It's the pattern I discovered after hundreds of implementations, distilled into a repeatable methodology that anyone can follow.",
-    "Now I help organizations apply the method — and teach domain experts to build solutions themselves using AI.",
-  ],
-  bookLine: 'I wrote about the invisible work of the people who do this in',
-  bookTitle: 'Between the Clicks: The Hidden Work of Healthcare Informatics',
-  credentials: 'Master of Healthcare Administration | Lean Six Sigma Green Belt (pursuing Black Belt) | SAFe 6.0 Agilist | Certified Scrum Master',
-  closing: "Same framework. Whether I'm helping a health system integrate ambient documentation or teaching a project manager to build their first dashboard — the process is PULSE.",
-  domainTranslator: {
-    title: 'The Domain Translator',
-    paragraphs: [
-      "The hardest part of any technology project isn't the technology. It's the translation. Clinical teams describe problems one way. Leadership frames priorities another way. IT speaks an entirely different language. The gap between those groups is where projects fail — not because anyone is wrong, but because no one is translating.",
-      "A domain translator sits between all of them. Not belonging to any single group, but fluent in each. That's what I do. That's what the PULSE Framework systematizes. And it's the skill that matters most in the age of AI — because AI doesn't fail when the code is wrong. It fails when the question was wrong.",
-    ],
-  },
+/* ===== CONTACT ===== */
+export const CONTACT = {
+  heroHeadline: "Let's talk.",
+  heroSubhead:
+    "The best first step is a free 20-minute conversation about your business.",
+  serviceAreaTitle: "Where I work",
+  serviceArea:
+    "Practical Informatics is based in Mokelumne Hill and serves small businesses across Calaveras, Amador, and Tuolumne counties. For businesses outside this area, reach out anyway — we can talk about it.",
 } as const;
 
-export interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-export const faqItems: FaqItem[] = [
-  {
-    question: 'What is the PULSE Framework?',
-    answer: "PULSE stands for Problem, Understand, Landscape, Solve, Enable. It's a structured methodology for implementing technology — especially AI — that starts with observing what's actually happening before deciding what to build. It was developed through nearly two decades of healthcare informatics experience.",
-  },
-  {
-    question: "What's the difference between the Methodology Guide, the Diagnostic, and the Web App?",
-    answer: "The Methodology Guide is the foundational philosophy — the principles, governance model, and decision logic behind PULSE. It's free and requires no email. The AI Fit Diagnostic is a free interactive tool that helps you determine which pain points are real AI candidates and which need people or process fixes first. The PULSE Web App ($49) is the full operational toolkit — 30 structured data tables, automated People/Process/Platform classification, dashboards, and 90-day outcome tracking.",
-  },
-  {
-    question: "What's in the PULSE Web App?",
-    answer: "A web application built on Google Sheets with 30 structured data tables, automated calculations, visual dashboards, and print-ready reports. It covers the complete PULSE methodology: initiative tracking, workflow observation, pain point cataloging, gap analysis, three-lane action planning (People, Process, Platform), and 30/60/90-day outcome monitoring. One-time purchase at $49 — no recurring costs.",
-  },
-  {
-    question: 'Is this only for healthcare?',
-    answer: "The methodology was developed in healthcare, but the pattern is universal. Any organization implementing technology — especially AI — faces the same gap between what leadership wants and what's actually happening on the ground. PULSE works anywhere that gap exists.",
-  },
-  {
-    question: "What's From Curious to Capable?",
-    answer: "A community for domain experts who want to learn to build with AI. Not a coding bootcamp — a space for people whose careers have been about translating between groups, and who are ready to use AI to build what they've been specifying for others.",
-  },
-  {
-    question: 'Do I need coding experience to use the PULSE Web App?',
-    answer: "No. The web app is designed for domain experts, not developers. If you can use a spreadsheet, you can use the web app. Your team interacts with a polished interface — they never see the underlying spreadsheet.",
-  },
-  {
-    question: 'Why Google Sheets?',
-    answer: "Because your team already has it. No procurement cycle. No new logins. No data leaving your organization. The web app runs on top of Sheets so your team interacts with a polished interface — they never see the spreadsheet. And if you ever outgrow it, the data is yours to export.",
-  },
-  {
-    question: '$49 seems inexpensive for something this comprehensive.',
-    answer: "That's intentional. The PULSE Web App is priced for the practitioners who actually do this work — not enterprise procurement budgets. It's a one-time purchase with no recurring costs. Same methodology, same rigor, accessible price.",
-  },
-  {
-    question: 'What does "technology is always the last decision" mean?',
-    answer: "It means that most technology projects fail not because of bad technology, but because the organization never clearly defined the problem, understood what was actually happening, or aligned on what success looks like. PULSE ensures those things happen first — so by the time you get to the technology decision, it's informed by reality.",
-  },
-];
-
-export const footerCta = {
-  headline: 'Start with the problem.',
-  pulseLetters: 'P → U → L → S → E',
-  orgPath: {
-    title: 'For organizations',
-    description: 'Read the PULSE Methodology Guide for free. Find where AI fits with the diagnostic. Get the Web App. Or book a call and let\'s talk about your specific challenge.',
-  },
-  builderPath: {
-    title: 'For builders',
-    description: 'Join a community of domain experts learning to build with AI. From Curious to Capable.',
-  },
+/* ===== BLOG ===== */
+export const BLOG = {
+  heading: "Notes from the foothills",
+  comingSoon:
+    "Practical writing on AI, process, and reclaiming time for small business owners — coming soon.",
 } as const;

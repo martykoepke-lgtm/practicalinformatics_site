@@ -1,167 +1,112 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { Project } from '@/lib/content';
-import Lightbox from './Lightbox';
+import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { CloseIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
-interface WorkModalProps {
-  project: Project;
+const EASE = [0.22, 0.61, 0.36, 1] as const;
+
+export type Project = {
+  id: string;
+  name: string;
+  blurb: string;
+  description: string;
+  images: readonly string[];
+  launchUrl: string | null;
+  launchLabel: string;
+};
+
+export default function WorkModal({
+  project,
+  onClose,
+}: {
+  project: Project | null;
   onClose: () => void;
-}
-
-export default function WorkModal({ project, onClose }: WorkModalProps) {
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (lightboxIndex !== null) {
-          setLightboxIndex(null);
-        } else {
-          onClose();
-        }
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, [onClose, lightboxIndex]);
+}) {
+  const reduce = useReducedMotion();
 
   return (
     <AnimatePresence>
-      <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        {/* Backdrop */}
-        <motion.div
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-          onClick={onClose}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        />
-
-        {/* Modal */}
-        <motion.div
-          className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/15 bg-slate-900/95 p-8 backdrop-blur-xl"
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.95, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        >
-          {/* Close */}
-          <button
-            className="absolute right-4 top-4 text-slate-400 hover:text-white"
+      {project && (
+        <>
+          <motion.div
+            className="fixed inset-0 z-40 bg-forest/40 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             onClick={onClose}
-            aria-label="Close modal"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-
-          {/* Header */}
-          <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-          <p className="mt-1 text-sm text-slate-400">{project.subtitle}</p>
-
-          {/* Screenshots */}
-          {project.screenshots && project.screenshots.length > 0 && (
-            <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
-              {project.screenshots.map((src, i) => (
-                <button
-                  key={i}
-                  className="flex-shrink-0 cursor-pointer overflow-hidden rounded-lg border border-white/10 transition-all hover:border-steel/50"
-                  onClick={() => setLightboxIndex(i)}
-                >
-                  <Image
-                    src={src}
-                    alt={`${project.title} screenshot ${i + 1}`}
-                    width={200}
-                    height={120}
-                    className="h-28 w-auto object-cover"
-                  />
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Content Sections */}
-          <div className="mt-6 space-y-6">
-            <div>
-              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-burnt">
-                The Truth
-              </h4>
-              <p className="mt-2 text-slate-300">{project.truth}</p>
-            </div>
-            <div>
-              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-steel">
-                The Translation
-              </h4>
-              <p className="mt-2 text-slate-300">{project.translation}</p>
-            </div>
-            <div>
-              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">
-                What I Learned
-              </h4>
-              <p className="mt-2 text-slate-300">{project.learned}</p>
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-400"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Demo Link */}
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-steel px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-steel-dim"
-            >
-              View Demo
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
-          )}
-
-          {/* Copyright */}
-          {project.copyright && (
-            <p className="mt-4 text-xs italic text-slate-600">
-              {project.copyright}
-            </p>
-          )}
-        </motion.div>
-
-        {/* Lightbox */}
-        {lightboxIndex !== null && project.screenshots && (
-          <Lightbox
-            images={project.screenshots}
-            currentIndex={lightboxIndex}
-            onClose={() => setLightboxIndex(null)}
-            onNavigate={setLightboxIndex}
-            altPrefix={project.title}
           />
-        )}
-      </motion.div>
+          <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 sm:items-center sm:p-6">
+            <motion.div
+              layoutId={reduce ? undefined : `work-${project.id}`}
+              role="dialog"
+              aria-modal="true"
+              aria-label={project.name}
+              className="relative w-full max-w-3xl rounded-xl border border-tan bg-cream p-6 sm:p-8"
+              initial={reduce ? { opacity: 0 } : false}
+              animate={reduce ? { opacity: 1 } : undefined}
+              exit={reduce ? { opacity: 0 } : undefined}
+              transition={{ duration: 0.45, ease: EASE }}
+            >
+              <button
+                type="button"
+                className="absolute right-4 top-4 text-moss transition-colors hover:text-forest"
+                onClick={onClose}
+                aria-label="Close"
+              >
+                <CloseIcon className="h-5 w-5" />
+              </button>
+
+              <h3 className="pr-10 text-2xl text-forest sm:text-3xl">
+                {project.name}
+              </h3>
+              <p className="mt-2 text-moss">{project.blurb}</p>
+
+              <p className="mt-5 leading-relaxed text-charcoal">
+                {project.description}
+              </p>
+
+              {project.launchUrl && (
+                <a
+                  href={project.launchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-md bg-forest px-6 py-3 font-semibold text-cream transition-colors hover:bg-forest-dark"
+                >
+                  {project.launchLabel}
+                  <ArrowRightIcon className="h-4 w-4" />
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              )}
+
+              {project.images.length > 0 && (
+                <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {project.images.map((src, i) => (
+                    <a
+                      key={src}
+                      href={src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative block overflow-hidden rounded-md border border-tan bg-cream-dim"
+                    >
+                      <div className="relative aspect-[16/10] w-full">
+                        <Image
+                          src={src}
+                          alt={`${project.name} — screenshot ${i + 1}`}
+                          fill
+                          sizes="(min-width: 640px) 50vw, 100vw"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          </div>
+        </>
+      )}
     </AnimatePresence>
   );
 }

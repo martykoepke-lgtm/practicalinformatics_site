@@ -1,148 +1,88 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #020617;
-  --color-foreground: #E2E8F0;
-  --color-steel: #4A90E2;
-  --color-steel-dim: #3A72B4;
-  --color-burnt: #E67E22;
-  --color-burnt-dim: #C96B1D;
-  --color-slate-200: #E2E8F0;
-  --color-slate-300: #CBD5E1;
-  --color-slate-400: #94A3B8;
-  --color-slate-500: #64748B;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1E293B;
-  --color-slate-900: #0F172A;
-  --color-slate-950: #020617;
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
+  /* Brand palette */
+  --color-forest: #1F3A2E;
+  --color-forest-dark: #16291F;
+  --color-gold: #C9A961;
+  --color-gold-dark: #A8893F;
+  --color-cream: #FAF6EE;
+  --color-cream-dim: #F2EBDC;
+  --color-charcoal: #2C2A26;
+  --color-moss: #5A6B5A;
+  --color-tan: #D8CCB4;
+
+  --color-background: #FAF6EE;
+  --color-foreground: #2C2A26;
+
+  --font-serif: var(--font-lora);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
 }
 
-/* ===== BASE STYLES ===== */
+/* ===== BASE ===== */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #020617;
-  color: #E2E8F0;
+  background: #FAF6EE;
+  color: #2C2A26;
   font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 ::selection {
-  background: rgba(74, 144, 226, 0.3);
-  color: #FFFFFF;
+  background: rgba(201, 169, 97, 0.35);
+  color: #1F3A2E;
 }
 
-/* ===== NOISE OVERLAY ===== */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
+/* Focus visibility for keyboard users (WCAG) */
+:focus-visible {
+  outline: 2px solid #1F3A2E;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* ===== GLOWING DIVIDERS ===== */
-.glow-divider {
+/* ===== SOFT DIVIDER (oak-tan hairline) ===== */
+.soft-divider {
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(74, 144, 226, 0.4),
-    rgba(230, 126, 34, 0.2),
+    rgba(216, 204, 180, 0.9),
     transparent
   );
 }
 
-/* ===== SCANLINE ANIMATION ===== */
-@keyframes scanline {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
-.scanline {
-  position: relative;
-  overflow: hidden;
-}
-
-.scanline::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(230, 126, 34, 0.15),
-    transparent
-  );
-  animation: scanline 3s ease-in-out infinite;
-}
-
-/* ===== PULSE ANIMATION ===== */
-@keyframes pulse-ring {
-  0% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-/* ===== SHIMMER BORDER ===== */
-@keyframes shimmer-rotate {
-  0% { --shimmer-angle: 0deg; }
-  100% { --shimmer-angle: 360deg; }
-}
-
-/* ===== GLITCH TEXT ===== */
-@keyframes glitch-reveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-  50% {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-    transform: translateX(2px);
-  }
-  52% {
-    transform: translateX(-2px);
-  }
-  54% {
-    transform: translateX(1px);
-  }
-  56% {
-    transform: translateX(0);
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* ===== PATH LINE DRAW (used by The Path) ===== */
+@keyframes path-draw {
+  to { stroke-dashoffset: 0; }
 }
 
 /* ===== SCROLLBAR ===== */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #020617;
-}
-::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F2EBDC; }
+::-webkit-scrollbar-thumb { background: #D8CCB4; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A961; }
+
+/* ===== REDUCED MOTION =====
+   The brief asks for calm; motion is the storytelling layer but must
+   never override a user's explicit reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

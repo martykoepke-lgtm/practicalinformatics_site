@@ -1,11 +1,26 @@
-import type { Metadata } from 'next';
-import PolicyPage from '@/components/layout/PolicyPage';
+import type { Metadata } from "next";
+import PolicyPage from "@/components/layout/PolicyPage";
+import { SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Practical Informatics',
-  description: 'Privacy policy for Practical Informatics and the PULSE Framework.',
+  title: "Privacy Policy | Practical Informatics",
+  description:
+    "How Practical Informatics LLC collects, uses, and protects information from visitors and clients.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | Practical Informatics",
+    description:
+      "How Practical Informatics LLC collects, uses, and protects information from visitors and clients.",
+    url: `${SITE.url}/privacy`,
+  },
 };
 
-export default function PrivacyPage() {
-  return <PolicyPage title="Privacy Policy" gettermsDocument="privacy" />;
+export default function Page() {
+  return (
+    <PolicyPage
+      title="Privacy Policy"
+      intro="How we collect, use, and protect information from visitors and clients of practicalinformatics.com."
+      gettermsSlug="privacy"
+    />
+  );
 }

@@ -1,73 +1,116 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { links } from '@/lib/content';
-
-const socialLinks = [
-  { label: 'LinkedIn', href: links.linkedin },
-  { label: 'Between the Clicks', href: links.book },
-  { label: 'From Curious to Capable', href: links.community },
-];
-
-const policyLinks = [
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Terms', href: '/terms' },
-  { label: 'Cookies', href: '/cookies' },
-  { label: 'Acceptable Use', href: '/acceptable-use' },
-];
+import Link from "next/link";
+import Image from "next/image";
+import { NAV, POLICIES, SITE } from "@/lib/content";
+import { CONTACT_EMAIL, SOCIAL, MARTYKOEPKE_URL } from "@/lib/links";
 
 export default function Footer() {
   return (
-    <footer className="relative px-6 pb-12 pt-8" role="contentinfo">
-      {/* Fiber-optic divider */}
-      <div className="glow-divider mb-12" />
-
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="text-sm font-semibold text-slate-300">
-          Practical Informatics | Marty Koepke, MHA
-        </p>
-        <p className="mt-2 font-mono text-xs text-slate-600">
-          P → U → L → S → E
-        </p>
-
-        {/* Social */}
-        <div className="mt-6 flex items-center justify-center gap-6">
-          {socialLinks.map((link) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-sm text-slate-500 transition-colors hover:text-steel"
-              whileHover={{ y: -2 }}
-              transition={{ type: 'spring', stiffness: 300 }}
+    <footer className="bg-forest px-6 py-16 text-cream">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-3">
+        {/* Brand */}
+        <div>
+          {/* Interim: full-color logo on a cream plate until a white logo
+              variant exists. Swap the src + drop the wrapper when ready. */}
+          <span className="inline-block rounded-md bg-cream p-3">
+            <Image
+              src="/images/logo-full.png"
+              alt="Practical Informatics"
+              width={180}
+              height={135}
+              className="h-12 w-auto"
+            />
+          </span>
+          <p className="mt-5 max-w-xs text-cream/80">{SITE.tagline}</p>
+          <p className="mt-4 max-w-xs text-sm text-cream/60">
+            For Marty&apos;s healthcare informatics work, speaking, and writing,
+            visit{" "}
+            <a
+              href={MARTYKOEPKE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-gold underline-offset-4 hover:text-gold"
             >
-              {link.label}
-            </motion.a>
-          ))}
+              martykoepke.com
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+            .
+          </p>
         </div>
 
-        {/* Copyright */}
-        <p className="mt-8 text-xs text-slate-600">
-          &copy; {new Date().getFullYear()} Practical Informatics LLC
-        </p>
+        {/* Quick links */}
+        <nav aria-label="Footer">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold">
+            Pages
+          </h2>
+          <ul className="mt-4 space-y-2.5">
+            {NAV.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-cream/80 transition-colors hover:text-gold"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        {/* Policy Links */}
-        <div className="mt-2 flex items-center justify-center gap-3">
-          {policyLinks.map((link, i) => (
-            <span key={link.label}>
+        {/* Contact */}
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold">
+            Get in touch
+          </h2>
+          <ul className="mt-4 space-y-2.5 text-cream/80">
+            <li>
               <a
-                href={link.href}
-                className="text-xs text-slate-600 transition-colors hover:text-slate-400"
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="transition-colors hover:text-gold"
               >
-                {link.label}
+                {CONTACT_EMAIL}
               </a>
-              {i < policyLinks.length - 1 && (
-                <span className="ml-3 text-slate-700">·</span>
-              )}
-            </span>
-          ))}
+            </li>
+            <li>{SITE.serviceAreaText}</li>
+            <li className="flex gap-4 pt-1">
+              <a
+                href={SOCIAL.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                Facebook
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+              <a
+                href={SOCIAL.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                LinkedIn
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-4 border-t border-cream/15 pt-6 text-sm text-cream/55 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {SITE.legalName}. {SITE.location}.
+        </p>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          {POLICIES.map((p) => (
+            <li key={p.href}>
+              <Link
+                href={p.href}
+                className="transition-colors hover:text-gold"
+              >
+                {p.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );
