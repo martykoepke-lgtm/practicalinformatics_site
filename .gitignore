@@ -19,7 +19,8 @@ next-env.d.ts.bak
 
 # claude code / local tooling
 .claude
-images/
+# Root-level image staging area only (NOT public/images/).
+/images/
 
 # project archives + working files
 _archive/
