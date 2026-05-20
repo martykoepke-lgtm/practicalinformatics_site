@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand palette */
+  --color-forest: #1F3A2E;
+  --color-forest-dark: #16291F;
+  --color-gold: #C9A961;
+  --color-gold-dark: #A8893F;
+  --color-cream: #FAF6EE;
+  --color-cream-dim: #F2EBDC;
+  --color-charcoal: #2C2A26;
+  --color-moss: #5A6B5A;
+  --color-tan: #D8CCB4;
+
+  --color-background: #FAF6EE;
+  --color-foreground: #2C2A26;
+
+  --font-serif: var(--font-lora);
+  --font-sans: var(--font-inter);
+}
+
+/* ===== BASE ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FAF6EE;
+  color: #2C2A26;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(201, 169, 97, 0.35);
+  color: #1F3A2E;
+}
+
+/* Focus visibility for keyboard users (WCAG) */
+:focus-visible {
+  outline: 2px solid #1F3A2E;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ===== SOFT DIVIDER (oak-tan hairline) ===== */
+.soft-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 204, 180, 0.9),
+    transparent
+  );
+}
+
+/* ===== PATH LINE DRAW (used by The Path) ===== */
+@keyframes path-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F2EBDC; }
+::-webkit-scrollbar-thumb { background: #D8CCB4; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A961; }
+
+/* ===== REDUCED MOTION =====
+   The brief asks for calm; motion is the storytelling layer but must
+   never override a user's explicit reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

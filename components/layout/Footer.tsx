@@ -1,0 +1,117 @@
+import Link from "next/link";
+import Image from "next/image";
+import { NAV, POLICIES, SITE } from "@/lib/content";
+import { CONTACT_EMAIL, SOCIAL, MARTYKOEPKE_URL } from "@/lib/links";
+
+export default function Footer() {
+  return (
+    <footer className="bg-forest px-6 py-16 text-cream">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-3">
+        {/* Brand */}
+        <div>
+          {/* Interim: full-color logo on a cream plate until a white logo
+              variant exists. Swap the src + drop the wrapper when ready. */}
+          <span className="inline-block rounded-md bg-cream p-3">
+            <Image
+              src="/images/logo-full.png"
+              alt="Practical Informatics"
+              width={180}
+              height={135}
+              className="h-12 w-auto"
+            />
+          </span>
+          <p className="mt-5 max-w-xs text-cream/80">{SITE.tagline}</p>
+          <p className="mt-4 max-w-xs text-sm text-cream/60">
+            For Marty&apos;s healthcare informatics work, speaking, and writing,
+            visit{" "}
+            <a
+              href={MARTYKOEPKE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-gold underline-offset-4 hover:text-gold"
+            >
+              martykoepke.com
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+            .
+          </p>
+        </div>
+
+        {/* Quick links */}
+        <nav aria-label="Footer">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold">
+            Pages
+          </h2>
+          <ul className="mt-4 space-y-2.5">
+            {NAV.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-cream/80 transition-colors hover:text-gold"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Contact */}
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gold">
+            Get in touch
+          </h2>
+          <ul className="mt-4 space-y-2.5 text-cream/80">
+            <li>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="transition-colors hover:text-gold"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </li>
+            <li>{SITE.serviceAreaText}</li>
+            <li className="flex gap-4 pt-1">
+              <a
+                href={SOCIAL.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                Facebook
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+              <a
+                href={SOCIAL.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                LinkedIn
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-4 border-t border-cream/15 pt-6 text-sm text-cream/55 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {SITE.legalName}. {SITE.location}.
+        </p>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          {POLICIES.map((p) => (
+            <li key={p.href}>
+              <Link
+                href={p.href}
+                className="transition-colors hover:text-gold"
+              >
+                {p.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </footer>
+  );
+}
