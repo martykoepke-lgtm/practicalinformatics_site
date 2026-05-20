@@ -288,7 +288,7 @@ export const ASSESSMENT = {
 
 /* ===== SHARED FINAL CTA (Home + About) ===== */
 export const FINAL_CTA = {
-  headline: "Ready to see where your time is going?",
+  headline: "Ready to see where your time and revenue are going?",
   body: "A free 20-minute conversation is the first step. No pitch, no pressure — just a real conversation about your business and whether the Time Back Assessment is the right next step.",
 } as const;
 
