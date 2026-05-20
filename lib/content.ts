@@ -73,7 +73,7 @@ export const HOME = {
   /** Two sentences. Mobile hero shows the first; sm+ shows both. */
   heroIntro: [
     "If you run a small business in the foothills and you're working too many hours on tasks that shouldn't take this long — you're in the right place.",
-    "I help local business owners look at where their time is actually going, and use AI and smarter process to get some of it back.",
+    "I bring intelligent AI and smarter process to the work that's eating your time and your revenue.",
   ],
   problem: [
     "Most small business owners I meet are working fifty or sixty hours a week, and spending half of that time on tasks they shouldn't have to do themselves. Copying information between systems. Answering the same email for the hundredth time. Chasing the same details over and over. Keeping track of things by memory because no tool quite fits.",
@@ -105,7 +105,7 @@ export const HOME = {
   },
   whoIAm: [
     "Hi, I'm Marty.",
-    "I spent fifteen years inside health systems figuring out why smart, hard-working people were spending half their day on busywork — or doing work completely manually — instead of doing what they were actually good at.",
+    "For fifteen years inside health systems I watched brilliant people get buried under workflows and technology that weren't designed for the way they actually work. I helped fix that there. Now I'm helping local business owners do the same.",
     "My family moved to the foothills five years ago, and we absolutely love it. The people I want to serve now are my neighbors. This community helped train my two sons for futures of their own. It helped facilitate my oldest son's engagement. They cut my hair. I eat their amazing food.",
     "We all have gifts. Mine is standing between end users and the technology they need to use — and I know how to leverage AI.",
   ],
@@ -116,8 +116,7 @@ export const ABOUT = {
   heroHeadline:
     "Fifteen years inside health systems. Now serving the neighbors who serve us.",
   story: [
-    "My family moved to the foothills five years ago, and we absolutely love it. The fifteen years before that I spent inside health systems, trying to figure out why smart, hard-working people were spending half their day on busywork — or doing work completely manually — instead of doing what they were actually good at.",
-    "My background is in clinical informatics. Fifteen years helping health systems figure out where the work was getting stuck and how to make it flow better. The tools were different — electronic health records, clinical workflows, regulatory systems — but the problem was the same: smart people drowning in busywork because nobody had stopped to look at how the work actually moved.",
+    "My family moved to the foothills five years ago, and we absolutely love it. For fifteen years now I've worked inside health systems, watching brilliant people get buried under workflows and technology that weren't designed for the way they actually work. The tools vary — electronic health records, clinical workflows, regulatory systems — but the diagnosis is always the same.",
     "What I learned, over those fifteen years, is that almost no organization has actually mapped where its own time goes. We feel like we're drowning, blame ourselves, work longer hours, and don't step back to ask if the work is organized right in the first place. That's true in a health system. It's true in a winery, a contractor's shop, an accounting practice, a small law firm.",
     "What's changed in the last couple of years is what's possible to do about it. AI didn't make the pattern — the pattern's been there forever. But AI made a lot of the fixes much easier, if you know what to fix in the first place. Most of the “AI for small business” content out there skips that question. I don't.",
     "These are the people I want to serve. My neighbors. The community that helped train my two sons for futures of their own, that helped facilitate my oldest son's engagement, that cuts my hair, that feeds me their amazing food. I'm based in Mokelumne Hill, and I work with small businesses across Calaveras, Amador, and Tuolumne counties. We all have gifts. Mine is standing between end users and the technology they need to use — and I know how to leverage AI.",
@@ -182,7 +181,7 @@ export const ABOUT = {
 export const ASSESSMENT = {
   heroHeadline: "The Time Back Assessment",
   heroSubhead:
-    "A clear-eyed look at where your time is actually going — and a plain-English plan to get some of it back.",
+    "A clear-eyed look at where your time and revenue are actually going — and a plain-English plan to get some of both back.",
   whatsDifferent: [
     "Most AI assessments happen on a Zoom call. This one happens in your business.",
     "I come on-site, watch how the work actually flows, listen more than I talk, and explicitly don't give recommendations in the moment — because the work deserves real thinking, not the first thing that comes to mind.",
