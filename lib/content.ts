@@ -187,6 +187,10 @@ export const ASSESSMENT = {
     "I come on-site, watch how the work actually flows, listen more than I talk, and explicitly don't give recommendations in the moment — because the work deserves real thinking, not the first thing that comes to mind.",
     "You'll get the recommendations in writing, in a report I can stand behind. And before we're done, I'll roll up my sleeves and implement one of the quick wins with you — so you don't just have a plan, you have momentum.",
   ],
+  notLocal: {
+    heading: "What if I'm not local?",
+    body: "The on-site visit is the heart of this offer, but it isn't the only way I work. I take on a limited number of remote and hybrid engagements when the work fits the format. Send a note anyway — tell me about your business and we'll figure out together whether this is right for you and what shape it takes.",
+  },
   reportBullets: [
     "The 3–5 biggest time leaks I observed, named in plain language",
     "For each one: what's causing it, what it's costing you, and what to do about it",

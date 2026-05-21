@@ -91,6 +91,20 @@ export default function AssessmentPage() {
         </RevealGroup>
       </Section>
 
+      {/* If you're not local — quieter cream-dim follow-on */}
+      <Section tone="cream-dim" width="narrow">
+        <Reveal>
+          <h2 className="text-2xl text-forest sm:text-3xl">
+            {ASSESSMENT.notLocal.heading}
+          </h2>
+        </Reveal>
+        <Reveal className="mt-6">
+          <p className="text-lg leading-relaxed text-charcoal">
+            {ASSESSMENT.notLocal.body}
+          </p>
+        </Reveal>
+      </Section>
+
       {/* The Path + full detail — light, interactive */}
       <Section tone="cream" width="wide">
         <Reveal>
