@@ -2,171 +2,187 @@
 
 ## What This Is
 
-Marketing site for **Practical Informatics**, Marty Koepke's consulting practice. Built around the **PULSE Framework** — a structured methodology for technology implementation that starts with observation, not assumptions. Five phases: Problem, Understand, Landscape, Solve, Enable.
+Marketing site for **Practical Informatics LLC**, Marty Koepke's one-person local
+consulting practice. The site has a single purpose: explain the **Time Back
+Assessment** and convert visitors into a free 20-minute conversation.
+
+Practical Informatics serves small businesses (typically 1–25 employees) in
+**Calaveras, Amador, and Tuolumne counties** — the California foothills. Marty is
+based in Mokelumne Hill. The work: bring AI and smarter process to the
+information work eating a small business owner's time and revenue.
+
+**Single offer:** the **Time Back Assessment** — $1,500 flat. An on-site visit, a
+written Time Back Report within 7 business days, a follow-up call, and one
+implemented quick win.
+
+**Sole conversion goal:** book a free 20-minute conversation (Tally form).
+
+Marty's broader healthcare-informatics, speaking, and writing work lives at a
+separate site, **martykoepke.com** — cross-linked here, not featured.
 
 **Live URL:** https://www.practicalinformatics.com
 
 ## Architecture
 
-Next.js 14+ (App Router) with TypeScript, Tailwind CSS, and Framer Motion. Dark "Industrial AI" aesthetic. Deployed to **Vercel**.
+Next.js (App Router) with TypeScript, Tailwind CSS v4, and Framer Motion.
+Calm, light, foothills-local aesthetic. Deployed to **Vercel**.
 
 | Layer | Choice |
 |---|---|
-| Framework | Next.js 16 (App Router, Turbopack) |
+| Framework | Next.js (App Router) |
 | Language | TypeScript |
-| Styling | Tailwind CSS |
+| Styling | Tailwind CSS v4 (config lives in `app/globals.css` via `@theme`, no `tailwind.config`) |
 | Animations | Framer Motion |
-| Fonts | Inter (body) + JetBrains Mono (code/checkpoints) |
-| Deployment | Vercel |
+| Fonts | Inter (`--font-inter`, body) + Lora (`--font-lora`, serif headlines) |
+| Blog | Markdown files in `content/blog/`, parsed by a tiny in-repo renderer (`lib/blog.ts`) — no CMS |
+| Deployment | Vercel (push to `main` auto-deploys) |
 
-## Design System
+## Design Direction — "calm canvas, kinetic story"
 
-**Colors:**
-- Background: `#020617` (Slate 950)
-- Primary accent: `#4A90E2` (Steel Blue — from logo)
-- Secondary/CTA: `#E67E22` (Burnt Orange — from logo)
-- Text: White, Slate-200 (`#E2E8F0`), Slate-400 (`#94A3B8`)
-- Glassmorphism: `bg-white/5 backdrop-blur-xl border-white/10`
+The visual brand is calm and grounded; **motion is the storytelling layer**, not
+decoration. Any new section must pass both tests: does it look calm at rest, and
+does motion advance the story rather than ornament it.
 
-**Global Effects:**
-- SVG noise texture overlay (`noise-overlay` class)
-- Mouse-following radial gradient (CursorGlow component)
-- Glowing 1px section dividers (`glow-divider` class)
-- Scanline animation on governance checkpoint boxes
+**Palette** (defined in `app/globals.css` `@theme`):
+- Background / cream: `#FAF6EE`; dimmer warm tan: `#F2EBDC` (`cream-dim`)
+- Forest green: `#1F3A2E` (primary), `#16291F` (dark)
+- Gold: `#C9A961`, `#A8893F` (`gold-dark`), `#6B5424` (`gold-darker`)
+- Text: charcoal `#2C2A26`, moss `#5A6B5A`
+- Tan hairline: `#D8CCB4`
+
+**Conventions:** quiet serif (Lora) headlines, sentence case, generous
+whitespace, no drop shadows, no gratuitous gradients. Sections alternate tone
+bands (`cream`, `cream-dim`, `forest`) via the `Section` component. Motion is
+slow (~0.6s), eased, scroll-driven — never spring/bounce. All motion honors
+`prefers-reduced-motion` (enforced globally in `globals.css`).
 
 ## File Structure
 
 ```
-practicalinformatics_site/
+PracticalInformatics/
 ├── app/
-│   ├── layout.tsx           # Root layout, fonts, SEO metadata, JSON-LD
-│   ├── page.tsx             # Home — assembles all 12 sections
-│   ├── globals.css          # Tailwind + custom utilities
-│   ├── pulse/page.tsx       # PULSE Pathway Builder page
-│   ├── privacy/page.tsx     # Policy pages (GetTerms embeds)
+│   ├── layout.tsx              # Root layout, fonts, SEO metadata, ProfessionalService JSON-LD
+│   ├── page.tsx                # Home
+│   ├── globals.css             # Tailwind v4 import + @theme palette + base styles
+│   ├── icon.png                # Favicon (App Router auto-discovery)
+│   ├── robots.ts               # robots.txt
+│   ├── sitemap.ts              # sitemap.xml
+│   ├── not-found.tsx           # 404 page
+│   ├── about/page.tsx          # About Marty
+│   ├── time-back-assessment/page.tsx  # The single offer — full detail
+│   ├── contact/page.tsx        # Contact + booking
+│   ├── blog/page.tsx           # Blog index (empty-state aware)
+│   ├── blog/[slug]/page.tsx    # Individual post
+│   ├── privacy/page.tsx        # Policy pages (GetTerms embeds)
 │   ├── terms/page.tsx
 │   ├── cookies/page.tsx
 │   ├── acceptable-use/page.tsx
 │   └── returns/page.tsx
 ├── components/
 │   ├── layout/
-│   │   ├── Navbar.tsx       # Floating glass nav + PULSE scroll tracker
-│   │   ├── Footer.tsx       # Minimalist footer
-│   │   └── PolicyPage.tsx   # Shared policy page wrapper
-│   ├── pulse/
-│   │   ├── PathwayBuilder.tsx # Interactive pathway builder (intake → results)
-│   │   ├── EmailGate.tsx      # Email capture gate (name/email → Google Sheet)
-│   │   ├── AIDiagnostic.tsx   # 3-screen AI Fit Diagnostic flow
-│   │   └── DiagnosticBridge.tsx # Bridge: diagnostic results → pathway builder
+│   │   ├── Navbar.tsx           # Top nav
+│   │   ├── Footer.tsx           # Footer (cream plate behind dark logo)
+│   │   └── PolicyPage.tsx       # Shared policy page wrapper
 │   ├── sections/
-│   │   ├── Hero.tsx         # Gradient headline + PULSE line SVG
-│   │   ├── Pattern.tsx      # "How technology projects fail"
-│   │   ├── PulseFramework.tsx # Interactive circuit (layoutId morph)
-│   │   ├── StartHere.tsx    # Methodology Guide + Toolkit bento + Web App
-│   │   ├── TwoLanes.tsx     # Org vs Builder lanes
-│   │   ├── WorkWithMe.tsx   # Consulting + Book a Call
-│   │   ├── Community.tsx    # From Curious to Capable (COMING SOON)
-│   │   ├── WhatIBuilt.tsx   # 4 portfolio cards
-│   │   ├── Background.tsx   # Bio + Domain Translator node graph
-│   │   ├── FAQ.tsx          # Accordion
-│   │   └── FooterCTA.tsx    # Final CTA section
+│   │   ├── HeroBanner.tsx       # Home hero (oak / foothills background)
+│   │   ├── ThePath.tsx          # Interactive 5-step Time Back Assessment journey
+│   │   ├── BuiltThings.tsx      # "A few things I've built" cards → WorkModal
+│   │   ├── Faq.tsx              # Expandable FAQ accordion
+│   │   └── FinalCta.tsx         # Shared closing CTA (Home, About, Assessment)
+│   ├── motion/
+│   │   ├── Reveal.tsx           # Scroll-reveal primitives (Reveal, RevealGroup, RevealItem)
+│   │   └── RouteTransition.tsx  # Page-to-page transition wrapper
 │   ├── ui/
-│   │   ├── Button.tsx       # Shimmer/spring/ghost/primary variants
-│   │   ├── GlassCard.tsx    # Glassmorphism card
-│   │   ├── ComingSoonBadge.tsx
-│   │   ├── SectionWrapper.tsx # Section padding + fade-in + dividers
-│   │   └── CursorGlow.tsx   # Mouse-following radial gradient
-│   └── modals/
-│       ├── WorkModal.tsx    # Portfolio detail modal
-│       ├── MethodologyModal.tsx # PULSE Methodology Guide modal
-│       └── Lightbox.tsx     # Image gallery
+│   │   ├── Section.tsx          # Tone-banded section + SoftDivider
+│   │   ├── Button.tsx           # Button variants (primary, ghost, onForest)
+│   │   └── Icons.tsx            # Inline SVG icon set (Icon, ArrowRightIcon)
+│   ├── modals/
+│   │   └── WorkModal.tsx        # Built-thing detail modal
+│   └── embeds/
+│       └── GetTermsEmbed.tsx    # GetTerms policy-document embed
 ├── lib/
-│   ├── content.ts           # All site content as typed constants
-│   ├── methodology-content.ts # PULSE Methodology Guide (10 sections, typed)
-│   ├── pathway-data.ts      # Pathway Builder data (30 sections, 5 phases)
-│   └── diagnostic-data.ts   # AI Fit Diagnostic scoring engine + bridge mapping
+│   ├── content.ts               # All site copy as typed constants
+│   ├── links.ts                 # Outbound links + CTAs (single source of truth)
+│   └── blog.ts                  # Markdown blog reader/renderer (frontmatter + minimal MD)
+├── content/
+│   └── blog/                    # Markdown posts (zero at launch — empty state handled)
 ├── public/
 │   ├── images/
+│   │   ├── hero-bg.jpg          # Foothills oak hero / OG image
 │   │   ├── headshot.jpg
-│   │   ├── logo-long.png    # V2 long logo (nav, OG)
-│   │   ├── logo-icon-v2.png # V2 icon logo
-│   │   ├── logo-stack.png   # Original stack logo
-│   │   ├── logo-icon.png    # Original icon logo
-│   │   ├── activiteez/      # 5 screenshots
-│   │   └── governiq/        # 5 screenshots
-│   ├── llms.txt             # AI agent content file
-│   ├── robots.txt
-│   ├── sitemap.xml
-│   └── googleefff2183f67c65a4.html
-├── _archive/                # Old static HTML site files
+│   │   ├── logo-horizontal.png  # Nav logo / JSON-LD logo
+│   │   ├── logo-lockup.png
+│   │   ├── logo-mark.png
+│   │   ├── governiq/            # 5 screenshots
+│   │   └── activiteez/          # 5 screenshots
+│   ├── llms.txt                 # AI agent content file
+│   └── googleefff2183f67c65a4.html  # Search Console verification
 ├── CLAUDE.md
 ├── next.config.ts
 ├── tsconfig.json
-├── tailwind.config.ts (auto-generated)
 └── package.json
 ```
 
 ## Content Management
 
-All site copy lives in `lib/content.ts` as typed TypeScript constants. Components import from this single source of truth. Content includes:
-- Hero text, stat bar numbers
-- Pattern section prose + pullquote
-- PULSE phase definitions + governance checkpoints
-- Start Here product descriptions
-- Two Lanes copy
-- Work With Me paragraphs
-- Community learn items + accelerator details
-- Portfolio projects (4 items with tags, screenshots, modal content)
-- Background bio + Domain Translator text
-- FAQ items (7 Q&As)
-- Footer CTA copy
+All site copy lives in `lib/content.ts` as typed constants — components never
+hardcode copy. Key exports:
+- `SITE` — name, legal name, URL, tagline, location, service area
+- `NAV` / `POLICIES` — navigation and policy route definitions
+- `META` — per-page title/description
+- `HOME` — hero intro, problem prose, "what I do" columns, differentiation, "who I am"
+- `ABOUT` — story, principles, credentials, `built` (things-I've-built data)
+- `ASSESSMENT` — the full Time Back Assessment page: hero, what's different,
+  `path` (5-step journey), report bullets, cost, who-it's-for, note on AI, FAQ
+- `FINAL_CTA` / `CONTACT` / `BLOG` — shared CTA, contact copy, blog copy
 
-## Additional Pages
+All outbound links and CTAs live in `lib/links.ts` — change them there and the
+whole site updates. `BOOK_CALL_HREF` is the single most important CTA.
 
-### `/pulse` — AI Fit Diagnostic + PULSE Pathway Builder
-Multi-phase interactive tool with 4 screens:
-1. **Email Gate**: Name/email capture → Google Sheet via Apps Script (`NEXT_PUBLIC_SHEET_ENDPOINT` env var). Returning users skip via localStorage.
-2. **AI Fit Diagnostic**: Identify pain points → assess each with 7 scored questions → results in 3 buckets (Fix First / Good AI Candidate / Investigate More). Scoring engine in `lib/diagnostic-data.ts`.
-3. **Bridge**: Auto-maps diagnostic results to PULSE tier + AI involvement. User answers one remaining question (vendor involvement).
-4. **Pathway Builder**: Personalized checklist of 10–30 PULSE steps. Receives pre-filled values from bridge. Data in `lib/pathway-data.ts`.
+## Pages
 
-## Site Sections (12 total, homepage)
+| Route | Purpose |
+|---|---|
+| `/` | Home — hero, the problem, "what I do", differentiation (anti-AI-guru), "who I am", recent posts (only when 3+ exist), final CTA |
+| `/about` | Marty's story, "How I work" principles, credentials, "A few things I've built", final CTA |
+| `/time-back-assessment` | The single offer in full — what's different, not-local note, **The Path** (interactive 5 steps), cost, who it's/isn't for, note on AI, FAQ, final CTA |
+| `/contact` | Hero + booking band (Tally) + email fallback + service-area note |
+| `/blog`, `/blog/[slug]` | Markdown blog. Zero posts at launch; UI handles the empty state. Hidden from nav until first posts ship |
+| `/privacy`, `/terms`, `/cookies`, `/acceptable-use`, `/returns` | Policy pages — GetTerms embeds via `PolicyPage` + `GetTermsEmbed` |
+| 404 | `app/not-found.tsx` |
 
-1. **Hero** — Gradient H1, 3 CTAs (Methodology/AI Diagnostic/Work With Me), PULSE EKG SVG animation, stat bar
-2. **The Pattern** — Narrative prose, Steel Blue pull quote border
-3. **PULSE Framework** — Interactive circuit: 5 nodes, click → layoutId morph to glassmorphism modal with scanline governance checkpoint
-4. **Start Here** — Methodology Guide card (opens modal), AI Fit Diagnostic CTA, PULSE Web App ($49 on Gumroad)
-5. **Two Lanes** — Glass cards with accent glow (Steel Blue for orgs, Burnt Orange for builders)
-6. **Work With Me** — Simple text + Book a Call CTA (spring hover)
-7. **From Curious to Capable** — COMING SOON badge, learn list, accelerator callout card
-8. **What I've Built** — 4 portfolio glass cards → WorkModal with lightbox
-9. **Background** — Photo + bio, Domain Translator animated SVG node graph, glitch-reveal quote
-10. **FAQ** — Accordion with AnimatePresence, Steel Blue active border
-11. **Footer CTA** — Gradient "Start with the problem", glowing P→U→L→S→E letters, two-path CTAs
-12. **Footer** — Fiber-optic divider, social links, copyright, policy links
+## The Path
+
+The Time Back Assessment's 5-step client journey, rendered as an interactive
+scroll-driven component (`ThePath.tsx`): free fit call → 90-minute on-site visit
+→ written Time Back Report → 30-minute follow-up call → one implemented quick
+win. The assessment page also renders an always-in-DOM `<ol>` of the same five
+steps below it as an SEO / no-JS / AI-readable fallback.
 
 ## External URLs
 
-| Destination | URL | Status |
+| Destination | URL | Notes |
 |---|---|---|
-| Book a Call | `https://tally.so/r/9qNRM5` | Live |
-| 1:1 Accelerator | `https://tally.so/r/xXVPgo` | Live |
-| PULSE Methodology | Modal (onClick) | **Active — opens MethodologyModal** |
-| PULSE Web App | `https://martypractical.gumroad.com/l/ebjqkf` | Live ($49) |
-| Community | `#` | **Placeholder** |
-| LinkedIn | `https://www.linkedin.com/in/marty-koepke/` | Live |
-| Between the Clicks | `https://a.co/d/08QnZGaP` | Live |
-| EHR Demo | `https://sophiav2.vercel.app/` | Live |
-| VytalPath Demo | `https://vytalpathdemo.vercel.app/` | Live |
+| Book a Call (primary CTA) | `https://tally.so/r/xXVPgo` | `BOOK_CALL_HREF` in `lib/links.ts` |
+| Contact email | `marty.koepke@practicalinformatics.com` | `CONTACT_EMAIL`; `mailto()` helper builds prefilled links |
+| martykoepke.com | `https://martykoepke.com` | Healthcare informatics / speaking / writing — cross-linked |
+| LinkedIn | `https://www.linkedin.com/in/marty-koepke` | |
+| Facebook | `https://www.facebook.com/profile.php?id=61564713020344` | |
+| EHR Governance Assistant demo | `https://sophiav2.vercel.app/` | Linked from "things I've built" |
+
+> Note: `lib/links.ts` anticipates a future booking tool (Cal.com/Calendly) and
+> form backend (Formspree/Resend). When those ship, change the values in
+> `links.ts` only.
 
 ## SEO
 
-- JSON-LD: `ProfessionalService` + `FAQPage` schemas (in `app/layout.tsx`)
-- Open Graph + Twitter Card meta tags
-- Per-page metadata on policy routes
-- `robots.txt` + `sitemap.xml` in `/public`
+- JSON-LD: `ProfessionalService` in `app/layout.tsx`; `Service` + `FAQPage` on
+  the assessment page; `ContactPage` on the contact page
+- Open Graph + Twitter Card meta (hero image), per-page metadata via `META`
+- `app/robots.ts` + `app/sitemap.ts` generate `robots.txt` / `sitemap.xml`
+- `app/icon.png` is the favicon (App Router auto-discovery)
+- `/llms.txt` linked from `<head>` as an LLM-readable summary
 - Google Search Console verified
-- AI agent content at `/llms.txt`
 
 ## Development
 
@@ -178,9 +194,4 @@ npm run start  # Production server
 
 ## Deployment
 
-Vercel. Push to main branch triggers auto-deploy.
-
-## Known Placeholders
-
-- Methodology Guide — Now opens as modal (no external link needed)
-- `#` on community links — Needs URL when community launches
+Vercel. Push to `main` triggers auto-deploy.
