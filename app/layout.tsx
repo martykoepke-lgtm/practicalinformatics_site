@@ -83,6 +83,7 @@ const localBusinessJsonLd = {
   })),
   founder: {
     "@type": "Person",
+    "@id": `${SITE.url}/#marty-koepke`,
     name: "Marty Koepke",
     jobTitle: "Informatics Consultant",
     description:

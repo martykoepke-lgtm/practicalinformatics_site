@@ -5,7 +5,7 @@ import Reveal, { RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import FinalCta from "@/components/sections/FinalCta";
 import BuiltThings from "@/components/sections/BuiltThings";
 import { META, ABOUT, SITE } from "@/lib/content";
-import { MARTYKOEPKE_URL } from "@/lib/links";
+import { MARTYKOEPKE_URL, SOCIAL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: META.about.title,
@@ -18,9 +18,69 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE.url}/#marty-koepke`,
+  name: "Marty Koepke",
+  jobTitle: "Informatics Consultant",
+  description: META.about.description,
+  url: `${SITE.url}/about`,
+  image: `${SITE.url}/images/headshot.jpg`,
+  homeLocation: {
+    "@type": "Place",
+    name: "Mokelumne Hill, California",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: SITE.legalName,
+    url: SITE.url,
+  },
+  knowsAbout: [
+    "Clinical Informatics",
+    "Healthcare Informatics",
+    "Business Process Optimization",
+    "Workflow Design",
+    "Artificial Intelligence Implementation",
+    "Small Business Consulting",
+  ],
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "degree",
+      name: "Master of Health Administration",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Lean Six Sigma Green Belt",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "SAFe 6.0 Agilist",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Certified Scrum Master",
+    },
+  ],
+  author: {
+    "@type": "Book",
+    name: "Between the Clicks: The Hidden Work of Healthcare Informatics",
+  },
+  sameAs: [SOCIAL.linkedin, MARTYKOEPKE_URL],
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+
       {/* Hero — warm tan tone, headshot + headline */}
       <Section tone="cream-dim" width="wide">
         <Reveal>
