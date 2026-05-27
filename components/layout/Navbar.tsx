@@ -34,9 +34,9 @@ export default function Navbar() {
         <Link href="/" aria-label="Practical Informatics — home" className="shrink-0">
           <Image
             src="/images/logo-horizontal.png"
-            alt="Practical Informatics LLC — Smart AI for small businesses"
-            width={2231}
-            height={892}
+            alt="Practical Informatics LLC"
+            width={1500}
+            height={400}
             priority
             className="h-[108px] w-auto"
           />

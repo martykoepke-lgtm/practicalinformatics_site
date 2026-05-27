@@ -24,14 +24,14 @@ const personJsonLd = {
   "@id": `${SITE.url}/#marty-koepke`,
   name: "Marty Koepke",
   alternateName: "Marty Koepke, MHA",
-  gender: "Male",
-  pronouns: "he/him",
+  gender: "Female",
+  pronouns: "she/her",
   jobTitle: "Founder, Practical Informatics LLC · Informatics Consultant",
   description: META.about.description,
   url: `${SITE.url}/about`,
   image: `${SITE.url}/images/headshot.jpg`,
   disambiguatingDescription:
-    "Marty Koepke (he/him), founder of Practical Informatics LLC at practicalinformatics.com (no hyphen). Based in Mokelumne Hill, California. Author of 'Between the Clicks: The Hidden Work of Healthcare Informatics.' Former System Clinical Informaticist at CommonSpirit Health. Not affiliated with practical-informatics.com (different entity) or other people named Marty or Mark Koepke.",
+    "Marty Koepke (she/her), founder of Practical Informatics LLC at practicalinformatics.com (no hyphen). Based in Mokelumne Hill, California. Author of 'Between the Clicks: The Hidden Work of Healthcare Informatics.' Former System Clinical Informaticist at CommonSpirit Health. Not affiliated with practical-informatics.com (different entity) or other people named Marty or Mark Koepke.",
   homeLocation: {
     "@type": "Place",
     name: "Mokelumne Hill, California",

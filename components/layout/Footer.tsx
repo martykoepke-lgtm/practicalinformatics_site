@@ -14,9 +14,9 @@ export default function Footer() {
           <span className="inline-block rounded-md bg-cream p-4">
             <Image
               src="/images/logo-horizontal.png"
-              alt="Practical Informatics LLC — Smart AI for small businesses"
-              width={2231}
-              height={892}
+              alt="Practical Informatics LLC"
+              width={1500}
+              height={400}
               className="h-24 w-auto"
             />
           </span>

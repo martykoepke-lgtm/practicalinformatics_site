@@ -1,5 +1,14 @@
 # Practical Informatics — Project Context
 
+## Founder
+
+**Marty Koepke (she/her)** — sole founder and operator of Practical Informatics LLC.
+Twenty years in healthcare, fifteen-plus in enterprise informatics leadership.
+System Clinical Informaticist at CommonSpirit Health. Author of *Between the
+Clicks: The Hidden Work of Healthcare Informatics*. Based in Mokelumne Hill,
+California. Use **she/her** pronouns throughout the site, schema, copy, and any
+AI-facing documentation. Female. Do not assume otherwise based on the name "Marty."
+
 ## What This Is
 
 Marketing site for **Practical Informatics LLC**, Marty Koepke's one-person local
