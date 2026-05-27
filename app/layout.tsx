@@ -64,11 +64,21 @@ export const metadata: Metadata = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${SITE.url}/#org`,
   name: SITE.name,
   legalName: SITE.legalName,
+  alternateName: "Practical Informatics — Foothills Informatics Consultancy",
   description: META.home.description,
+  disambiguatingDescription:
+    "Practical Informatics LLC at practicalinformatics.com (no hyphen). California foothills consultancy founded in 2025 by Marty Koepke. Helps small businesses in Calaveras, Amador, and Tuolumne counties improve their information work. Not affiliated with practical-informatics.com (a different, unrelated entity).",
+  slogan: SITE.tagline,
   url: SITE.url,
   email: CONTACT_EMAIL,
+  foundingDate: "2025",
+  foundingLocation: {
+    "@type": "Place",
+    name: "Mokelumne Hill, California",
+  },
   image: `${SITE.url}/images/hero-bg.jpg`,
   logo: `${SITE.url}/images/logo-horizontal.png`,
   address: {
@@ -81,20 +91,34 @@ const localBusinessJsonLd = {
     "@type": "AdministrativeArea",
     name,
   })),
+  knowsAbout: [
+    "Information work",
+    "Workflow optimization",
+    "Business process improvement",
+    "Small business operations",
+    "AI implementation",
+    "Lean Six Sigma",
+    "Healthcare informatics",
+  ],
   founder: {
     "@type": "Person",
     "@id": `${SITE.url}/#marty-koepke`,
     name: "Marty Koepke",
-    jobTitle: "Informatics Consultant",
+    alternateName: "Marty Koepke, MHA",
+    gender: "Male",
+    pronouns: "he/him",
+    jobTitle: "Founder, Practical Informatics LLC",
     description:
-      "Fifteen years in healthcare informatics. Now helping foothills small businesses reclaim their time with AI and smarter process.",
-    sameAs: [SOCIAL.linkedin, MARTYKOEPKE_URL],
+      "Twenty years in healthcare informatics. Combines that experience with innovative AI to design and build custom web applications for foothills small businesses. Led enterprise informatics strategy for Abridge and Notable across multiple states and EHR platforms.",
+    sameAs: [SOCIAL.linkedin, SOCIAL.facebook, MARTYKOEPKE_URL],
   },
   sameAs: [SOCIAL.linkedin, SOCIAL.facebook, MARTYKOEPKE_URL],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
     email: CONTACT_EMAIL,
+    areaServed: "US-CA",
+    availableLanguage: "English",
   },
 };
 

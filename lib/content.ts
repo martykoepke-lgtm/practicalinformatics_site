@@ -8,8 +8,9 @@ export const SITE = {
   name: "Practical Informatics",
   legalName: "Practical Informatics LLC",
   url: "https://www.practicalinformatics.com",
-  tagline: "Smart AI for small businesses.",
+  tagline: "Reclaim your time. Run a smarter business.",
   location: "Mokelumne Hill, California",
+  foundingYear: 2025,
   serviceArea: ["Calaveras County", "Amador County", "Tuolumne County"],
   serviceAreaText: "Serving Calaveras, Amador, and Tuolumne counties",
 } as const;
@@ -42,24 +43,24 @@ export const POLICIES: { label: string; href: string; gettermsSlug: string }[] =
 export const META = {
   home: {
     title:
-      "Practical Informatics | Smart AI for small businesses",
+      "Practical Informatics | Reclaim Your Time. Run a Smarter Business.",
     description:
-      "Practical Informatics brings smart AI to small businesses in Calaveras, Amador, and Tuolumne counties — without the AI-hype.",
+      "Reclaim your time. Run a smarter foothills business. Practical Informatics helps small business owners in Calaveras, Amador, and Tuolumne counties map where time and revenue are going — then fix it with smarter workflows, the right tools, and AI where it actually fits.",
   },
   about: {
     title: "About Marty Koepke | Practical Informatics",
     description:
-      "Fifteen years inside health systems making complicated work simpler — now helping foothills small businesses do the same.",
+      "Marty Koepke (he/him), founder of Practical Informatics. Twenty years in healthcare informatics — now combining that experience with innovative AI to design and build custom applications for foothills small businesses.",
   },
   assessment: {
     title: "The Time Back Assessment | Practical Informatics",
     description:
-      "An on-site assessment for foothills small businesses. Identify where your time is going, fix one quick win before we're done. $1,500.",
+      "An on-site assessment for foothills small businesses. We map where your information work is leaking time, then fix one quick win before we're done. $1,500.",
   },
   blog: {
     title: "Notes from the Foothills | Practical Informatics",
     description:
-      "Practical writing on AI, process, and reclaiming time for small business owners in the California foothills.",
+      "Practical writing on information work, smarter processes, and reclaiming time for small business owners in the California foothills.",
   },
   contact: {
     title: "Contact | Practical Informatics",
@@ -70,10 +71,23 @@ export const META = {
 
 /* ===== HOME ===== */
 export const HOME = {
+  /** Sub-tagline sits between the H1 and the intro paragraph in the hero.
+   *  Carries the AI signal above the fold without dethroning the main tagline. */
+  subTagline: "Smarter work, smarter tools, AI where it actually fits.",
+  /** Trust strip below the hero CTAs. Concrete, scale-anchored credentials.
+   *  Distinguishes between (a) AI-powered tools Marty has personally built
+   *  and shipped (capabilities, not unknown product names) and (b) the
+   *  vendor AI rollouts he led at enterprise scale (named products). */
+  heroTrust: [
+    "AI-powered tools designed & shipped",
+    "Enterprise informatics strategy: Abridge, Notable",
+    "Multi-state, multi-EHR",
+    "$26M+ saved",
+  ],
   /** Two sentences. Mobile hero shows the first; sm+ shows both. */
   heroIntro: [
-    "If you run a small business in the foothills and you're working too many hours on tasks that shouldn't take this long — you're in the right place.",
-    "I bring intelligent AI and smarter process to the work that's eating your time and your revenue.",
+    "If you run a small business in the California foothills and you're working too many hours on tasks that shouldn't take this long — you're in the right place.",
+    "I help foothills businesses get a handle on the work that's eating your time and revenue — smarter workflows, the right tools, and AI where it actually fits.",
   ],
   problem: [
     "Most small business owners I meet are working fifty or sixty hours a week, and spending half of that time on tasks they shouldn't have to do themselves. Copying information between systems. Answering the same email for the hundredth time. Chasing the same details over and over. Keeping track of things by memory because no tool quite fits.",
@@ -96,10 +110,26 @@ export const HOME = {
       body: "Before we're done, we'll roll up our sleeves and get one quick win in place — so you don't just have a plan, you have momentum.",
     },
   ],
+  /** A simple scrollable list of concrete AI work. Subtitle frames the
+   *  whole list as one umbrella claim; the list items prove it with
+   *  specific capabilities. Each line starts with a clean verb. */
+  whereAIFits: {
+    eyebrow: "AI Integration",
+    headline: "What I've actually done with AI.",
+    subtitle: "I combine years of experience with innovative AI to design and build custom applications that solve real problems.",
+    list: [
+      "Led enterprise informatics strategy for Abridge and Notable — system integration design and market readiness across multiple states and EHR platforms.",
+      "Designed and built custom web applications using AI — taking real business problems from sketch to shipped, working software.",
+      "Designed and shipped AI-powered conversational guides (chatbots) that walk users through complex multi-step processes in plain language.",
+      "Built classification and routing intelligence embedded in real business workflows.",
+      "Designed voice-first AI capture systems — spoken input flows through speech-to-text into an AI extraction layer that codifies free narrative into typed, queryable records. Replaces the manual data entry that kills most tracking workflows.",
+      "Use AI in client delivery — analyzing patterns from on-site observation, drafting your report. Judgment stays mine.",
+    ],
+  },
   differentiation: {
     eyebrow: "How I think about this",
-    headline: "I'm not another AI guru. I'm here to fix the work.",
-    body: 'Most "AI transformation" advice starts with the tool and works backwards to the problem. I work the other way around. I look at where information moves through your business — customer intake, data processing, day-to-day admin — and find what takes too long, what feels too manual, and what just plain annoys someone. Then we fix it. Sometimes the answer is AI. Often it\'s smarter process, a better tool, or maybe something custom that is made just for you. I\'ll tell you plainly which is which.',
+    headline: "I fix the work, not just the technology.",
+    body: "Most “AI transformation” advice starts with the tool and works backward to the problem. I work the other way. I look at where information moves through your business — customer intake, data, day-to-day admin, the tracking nobody quite keeps up with — and find what takes too long, what feels too manual, and what just plain annoys someone. Then we fix it. Sometimes the answer is AI. Often it’s a smarter process, a better tool, or something custom made just for you. I’ll tell you plainly which is which.",
     closing:
       "If the work wearing you out is information work, you're in the right place.",
   },
@@ -107,19 +137,19 @@ export const HOME = {
     "Hi, I'm Marty.",
     "For fifteen years inside health systems I watched brilliant people get buried under workflows and technology that weren't designed for the way they actually work. I helped fix that there. Now I'm helping local business owners do the same.",
     "My family moved to the foothills five years ago, and we absolutely love it. The people I want to serve now are my neighbors. This community helped train my two sons for futures of their own. It helped facilitate my oldest son's engagement. They cut my hair. I eat their amazing food.",
-    "We all have gifts. Mine is standing between end users and the technology they need to use — and I know how to leverage AI.",
+    "We all have gifts. Mine is standing between people and the technology they need to use — and making sure AI gets implemented intelligently, when it actually fits.",
   ],
 } as const;
 
 /* ===== ABOUT ===== */
 export const ABOUT = {
   heroHeadline:
-    "Fifteen years inside health systems. Now serving the neighbors who serve us.",
+    "Twenty years inside health systems. Now serving the foothills.",
   story: [
-    "My family moved to the foothills five years ago, and we absolutely love it. For fifteen years now I've worked inside health systems, watching brilliant people get buried under workflows and technology that weren't designed for the way they actually work. The tools vary — electronic health records, clinical workflows, regulatory systems — but the diagnosis is always the same.",
-    "What I learned, over those fifteen years, is that almost no organization has actually mapped where its own time goes. We feel like we're drowning, blame ourselves, work longer hours, and don't step back to ask if the work is organized right in the first place. That's true in a health system. It's true in a winery, a contractor's shop, an accounting practice, a small law firm.",
+    "My family moved to the foothills five years ago, and we absolutely love it. For fifteen-plus years I've worked inside health systems — watching brilliant people get buried under workflows and technology that weren't designed for the way they actually work. The tools vary — electronic health records, clinical workflows, regulatory systems — but the diagnosis is always the same.",
+    "What I learned, over those years, is that almost no organization has actually mapped where its own time goes. We feel like we're drowning, blame ourselves, work longer hours, and don't step back to ask if the work is organized right in the first place. That's true in a health system. It's true in a winery, a contractor's shop, an accounting practice, a small law firm.",
     "What's changed in the last couple of years is what's possible to do about it. AI didn't make the pattern — the pattern's been there forever. But AI made a lot of the fixes much easier, if you know what to fix in the first place. Most of the “AI for small business” content out there skips that question. I don't.",
-    "These are the people I want to serve. My neighbors. The community that helped train my two sons for futures of their own, that helped facilitate my oldest son's engagement, that cuts my hair, that feeds me their amazing food. I'm based in Mokelumne Hill, and I work with small businesses across Calaveras, Amador, and Tuolumne counties. We all have gifts. Mine is standing between end users and the technology they need to use — and I know how to leverage AI.",
+    "These are the people I want to serve. My neighbors. The community that helped train my two sons for futures of their own, that helped facilitate my oldest son's engagement, that cuts my hair, that feeds me their amazing food. I'm based in Mokelumne Hill, and I work with small businesses across Calaveras, Amador, and Tuolumne counties. We all have gifts. Mine is standing between people and the technology they need to use — and making sure AI gets implemented intelligently, when it actually fits.",
   ],
   principles: [
     {
@@ -140,7 +170,45 @@ export const ABOUT = {
     },
   ],
   credentials:
-    "Master of Health Administration. System Clinical Informaticist at CommonSpirit Health, working across 2,500+ ambulatory care facilities. Author of Between the Clicks: The Hidden Work of Healthcare Informatics. Lean Six Sigma Green Belt (Black Belt in progress). SAFe 6.0 Agilist. Certified Scrum Master.",
+    "Twenty years in healthcare, fifteen-plus driving enterprise-wide digital transformation. Master of Health Administration (Ashford University). System Clinical Informaticist at CommonSpirit Health, working across 2,500+ ambulatory care facilities. Author of Between the Clicks: The Hidden Work of Healthcare Informatics. Lean Six Sigma Black Belt. Lean Six Sigma Green Belt. Certified SAFe 6.0 Agilist. Scrum Master. Epic Clinical Informaticist Certification.",
+  recentWork:
+    "Recent enterprise work includes enabling Notable RPA implementation across 350 clinics — reducing patient check-in from 10 to 2 minutes and generating $26M+ in annual labor savings; piloting Abridge AI ambient documentation with 222 providers (14.7% documentation time reduction); and leading quality measure initiatives that drove a 42% improvement in Medicare Annual Wellness Visits ($1.3M revenue lift). The methods that worked at enterprise scale are the same methods I bring to foothills small businesses — only smaller, more personal, and on your premises.",
+  /** Structured background data for the visually appealing Background section.
+   *  Bio statement, stat cards, and credentials chips. */
+  backgroundEyebrow: "Background",
+  backgroundHeadline: "Enterprise-scale informatics. Foothills-scale practice.",
+  backgroundIntro:
+    "System Clinical Informaticist at CommonSpirit Health, working across 2,500+ ambulatory care facilities. Author of Between the Clicks: The Hidden Work of Healthcare Informatics. Twenty years in healthcare, fifteen-plus driving enterprise-wide digital transformation across multiple states and EHR platforms.",
+  outcomeStats: [
+    {
+      value: "$26M+",
+      label: "Annual labor savings",
+      context: "Notable RPA · 350+ clinics",
+    },
+    {
+      value: "14.7%",
+      label: "Documentation time cut",
+      context: "Abridge AI · 222 providers",
+    },
+    {
+      value: "42%",
+      label: "Medicare AWV lift",
+      context: "$1.3M revenue increase",
+    },
+    {
+      value: "20yr",
+      label: "Healthcare informatics",
+      context: "Enterprise + foothills",
+    },
+  ],
+  credentialsChips: [
+    "Master of Health Administration",
+    "Lean Six Sigma Black Belt",
+    "Lean Six Sigma Green Belt",
+    "SAFe 6.0 Agilist",
+    "Certified Scrum Master",
+    "Epic Clinical Informaticist",
+  ],
   built: [
     {
       id: "ehr-governance",
@@ -180,8 +248,19 @@ export const ABOUT = {
 /* ===== TIME BACK ASSESSMENT ===== */
 export const ASSESSMENT = {
   heroHeadline: "The Time Back Assessment",
+  /** Sub-tagline — italic gold treatment, between H1 and subhead.
+   *  Carries AI signal above the fold on this page too. */
+  subTagline: "On-site observation. AI-fluent analysis. A report you can act on.",
   heroSubhead:
     "A clear-eyed look at where your time and revenue are actually going — and a plain-English plan to get some of both back.",
+  /** Trust strip below the hero CTA — same AI-credibility pattern as home.
+   *  Capability-led for own builds, named products for enterprise rollouts. */
+  heroTrust: [
+    "20+ years informatics",
+    "AI-powered tools designed & shipped",
+    "Enterprise informatics strategy: Abridge, Notable",
+    "$26M+ saved",
+  ],
   whatsDifferent: [
     "Most AI assessments happen on a Zoom call. This one happens in your business.",
     "I come on-site, watch how the work actually flows, listen more than I talk, and explicitly don't give recommendations in the moment — because the work deserves real thinking, not the first thing that comes to mind.",

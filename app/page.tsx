@@ -64,6 +64,35 @@ export default function HomePage() {
         </Reveal>
       </Section>
 
+      {/* AI Integration — cream-dim band, scrollable list of concrete AI work.
+          Subtitle frames the list; the list provides specific proof points. */}
+      <Section tone="cream-dim" width="narrow">
+        <Reveal>
+          <p className="text-center font-serif text-sm uppercase tracking-[0.18em] text-gold-dark">
+            {HOME.whereAIFits.eyebrow}
+          </p>
+          <h2 className="mt-3 text-center font-serif text-3xl text-forest sm:text-4xl">
+            {HOME.whereAIFits.headline}
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-center font-serif text-lg italic leading-relaxed text-moss sm:text-xl">
+            {HOME.whereAIFits.subtitle}
+          </p>
+        </Reveal>
+        <RevealGroup className="mx-auto mt-12 max-w-2xl">
+          {HOME.whereAIFits.list.map((item, i) => (
+            <RevealItem
+              key={i}
+              className="flex gap-5 border-b border-tan py-5 last:border-b-0"
+            >
+              <span className="min-w-[32px] pt-0.5 font-serif text-sm font-semibold text-gold-dark">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="leading-relaxed text-charcoal">{item}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </Section>
+
       {/* Where I focus — differentiation, anti-AI-guru positioning */}
       <Section tone="cream" width="narrow">
         <Reveal>

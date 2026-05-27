@@ -102,7 +102,12 @@ export default function HeroBanner() {
               </h1>
             </Fade>
             <Fade>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
+              <p className="mt-4 max-w-xl font-serif text-lg italic leading-relaxed text-gold sm:text-xl">
+                {HOME.subTagline}
+              </p>
+            </Fade>
+            <Fade>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
                 {HOME.heroIntro[0]}
                 <span className="hidden sm:inline"> {HOME.heroIntro[1]}</span>
               </p>
@@ -116,6 +121,24 @@ export default function HeroBanner() {
                 <Button href="/time-back-assessment" variant="onPhoto">
                   See how it works
                 </Button>
+              </div>
+            </Fade>
+            <Fade>
+              <div className="mt-7 max-w-xl border-t border-cream/15 pt-4">
+                <p className="text-[11px] uppercase tracking-[0.14em] text-cream/55 sm:text-xs">
+                  {HOME.heroTrust.map((item, i) => (
+                    <span key={i}>
+                      {i <= 1 ? (
+                        <span className="text-gold/85">{item}</span>
+                      ) : (
+                        item
+                      )}
+                      {i < HOME.heroTrust.length - 1 && (
+                        <span className="mx-2 text-cream/30">·</span>
+                      )}
+                    </span>
+                  ))}
+                </p>
               </div>
             </Fade>
           </motion.div>

@@ -23,32 +23,54 @@ const personJsonLd = {
   "@type": "Person",
   "@id": `${SITE.url}/#marty-koepke`,
   name: "Marty Koepke",
-  jobTitle: "Informatics Consultant",
+  alternateName: "Marty Koepke, MHA",
+  gender: "Male",
+  pronouns: "he/him",
+  jobTitle: "Founder, Practical Informatics LLC · Informatics Consultant",
   description: META.about.description,
   url: `${SITE.url}/about`,
   image: `${SITE.url}/images/headshot.jpg`,
+  disambiguatingDescription:
+    "Marty Koepke (he/him), founder of Practical Informatics LLC at practicalinformatics.com (no hyphen). Based in Mokelumne Hill, California. Author of 'Between the Clicks: The Hidden Work of Healthcare Informatics.' Former System Clinical Informaticist at CommonSpirit Health. Not affiliated with practical-informatics.com (different entity) or other people named Marty or Mark Koepke.",
   homeLocation: {
     "@type": "Place",
     name: "Mokelumne Hill, California",
   },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Mokelumne Hill",
+    addressRegion: "CA",
+    addressCountry: "US",
+  },
   worksFor: {
     "@type": "Organization",
+    "@id": `${SITE.url}/#org`,
     name: SITE.legalName,
     url: SITE.url,
   },
   knowsAbout: [
-    "Clinical Informatics",
-    "Healthcare Informatics",
-    "Business Process Optimization",
-    "Workflow Design",
-    "Artificial Intelligence Implementation",
-    "Small Business Consulting",
+    "Healthcare informatics",
+    "Clinical informatics",
+    "Information work",
+    "Business process improvement",
+    "Workflow optimization",
+    "EHR governance",
+    "Lean Six Sigma",
+    "Agile delivery",
+    "AI implementation for small business",
+    "Small business operations consulting",
   ],
   hasCredential: [
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "degree",
       name: "Master of Health Administration",
+      recognizedBy: { "@type": "Organization", name: "Ashford University" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Lean Six Sigma Black Belt",
     },
     {
       "@type": "EducationalOccupationalCredential",
@@ -58,19 +80,41 @@ const personJsonLd = {
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certification",
-      name: "SAFe 6.0 Agilist",
+      name: "Certified SAFe 6.0 Agilist",
     },
     {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certification",
       name: "Certified Scrum Master",
+      recognizedBy: { "@type": "Organization", name: "Scrum Alliance" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certification",
+      name: "Epic Clinical Informaticist Certification",
+      recognizedBy: { "@type": "Organization", name: "Epic" },
     },
   ],
-  author: {
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Informatics Consultant",
+    occupationLocation: {
+      "@type": "Place",
+      name: "Mokelumne Hill, California",
+    },
+    skills:
+      "Healthcare informatics; information work; workflow optimization; process improvement; AI implementation; Lean Six Sigma; agile delivery",
+  },
+  workExample: {
     "@type": "Book",
     name: "Between the Clicks: The Hidden Work of Healthcare Informatics",
+    author: { "@id": `${SITE.url}/#marty-koepke` },
   },
-  sameAs: [SOCIAL.linkedin, MARTYKOEPKE_URL],
+  sameAs: [
+    SOCIAL.linkedin,
+    SOCIAL.facebook,
+    MARTYKOEPKE_URL,
+  ],
 };
 
 export default function AboutPage() {
@@ -131,27 +175,74 @@ export default function AboutPage() {
         </RevealGroup>
       </Section>
 
-      {/* Credentials — quiet light section */}
-      <Section tone="cream" width="narrow">
+      {/* Background — restructured for visual punch: bio + stat grid + chip cloud */}
+      <Section tone="cream">
         <Reveal>
-          <div className="rounded-lg border border-tan bg-cream-dim p-7">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
-              Background
-            </h2>
-            <p className="mt-3 leading-relaxed text-charcoal">
-              {ABOUT.credentials}
-            </p>
-            <p className="mt-4 text-sm text-moss">
-              For my healthcare informatics work, speaking, and writing, visit{" "}
-              <a
-                href={MARTYKOEPKE_URL}
-                className="underline decoration-gold underline-offset-4 hover:text-forest"
+          <p className="text-center font-serif text-sm uppercase tracking-[0.18em] text-gold-dark">
+            {ABOUT.backgroundEyebrow}
+          </p>
+          <h2 className="mt-3 text-center font-serif text-3xl text-forest sm:text-4xl">
+            {ABOUT.backgroundHeadline}
+          </h2>
+        </Reveal>
+
+        {/* Bio statement — centered prose */}
+        <Reveal className="mt-10">
+          <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-charcoal">
+            {ABOUT.backgroundIntro}
+          </p>
+        </Reveal>
+
+        {/* Outcome stat grid — 4 visual cards */}
+        <RevealGroup className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {ABOUT.outcomeStats.map((stat) => (
+            <RevealItem
+              key={stat.value}
+              className="rounded-lg border border-tan bg-cream-dim p-6 text-center"
+            >
+              <div className="font-serif text-4xl font-semibold text-forest">
+                {stat.value}
+              </div>
+              <div className="mt-2 font-serif text-xs uppercase tracking-[0.14em] text-gold-dark">
+                {stat.label}
+              </div>
+              <p className="mt-2 text-xs leading-relaxed text-moss">
+                {stat.context}
+              </p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+
+        {/* Credentials chips */}
+        <Reveal className="mt-14">
+          <p className="text-center font-serif text-sm uppercase tracking-[0.18em] text-gold-dark">
+            Credentials
+          </p>
+          <div className="mx-auto mt-5 flex max-w-3xl flex-wrap justify-center gap-2">
+            {ABOUT.credentialsChips.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-tan bg-cream-dim px-4 py-1.5 text-sm text-charcoal"
               >
-                martykoepke.com
-              </a>
-              .
-            </p>
+                {c}
+              </span>
+            ))}
           </div>
+        </Reveal>
+
+        {/* Quiet cross-link to martykoepke.com */}
+        <Reveal className="mt-12 text-center">
+          <p className="text-sm text-moss">
+            For Marty&apos;s healthcare informatics work, speaking, and writing,
+            visit{" "}
+            <a
+              href={MARTYKOEPKE_URL}
+              className="underline decoration-gold underline-offset-4 hover:text-forest"
+            >
+              martykoepke.com
+            </a>
+            .
+          </p>
         </Reveal>
       </Section>
 

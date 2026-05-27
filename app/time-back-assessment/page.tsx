@@ -57,13 +57,16 @@ export default function AssessmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
       />
 
-      {/* Hero — light, centered */}
+      {/* Hero — light, centered. Sub-tagline carries AI signal above the fold. */}
       <Section tone="cream" width="narrow" className="text-center">
         <Reveal>
           <h1 className="text-4xl text-forest sm:text-5xl">
             {ASSESSMENT.heroHeadline}
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl font-serif text-xl text-moss">
+          <p className="mx-auto mt-4 max-w-2xl font-serif text-lg italic text-gold-dark sm:text-xl">
+            {ASSESSMENT.subTagline}
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl font-serif text-xl text-moss">
             {ASSESSMENT.heroSubhead}
           </p>
           <div className="mt-9">
@@ -71,6 +74,22 @@ export default function AssessmentPage() {
               {BOOK_CALL_LABEL}
               <ArrowRightIcon className="h-4 w-4" />
             </Button>
+          </div>
+          <div className="mx-auto mt-7 max-w-xl border-t border-tan pt-4">
+            <p className="text-[11px] uppercase tracking-[0.14em] text-moss sm:text-xs">
+              {ASSESSMENT.heroTrust.map((item, i) => (
+                <span key={i}>
+                  {i <= 2 ? (
+                    <span className="text-gold-dark">{item}</span>
+                  ) : (
+                    item
+                  )}
+                  {i < ASSESSMENT.heroTrust.length - 1 && (
+                    <span className="mx-2 text-tan">·</span>
+                  )}
+                </span>
+              ))}
+            </p>
           </div>
         </Reveal>
       </Section>
@@ -91,8 +110,28 @@ export default function AssessmentPage() {
         </RevealGroup>
       </Section>
 
-      {/* If you're not local — quieter cream-dim follow-on */}
+      {/* A note on AI — moved UP from later in the page so AI integration
+          is visible right after the positioning, not buried near FAQ */}
       <Section tone="cream-dim" width="narrow">
+        <Reveal>
+          <p className="text-center font-serif text-sm uppercase tracking-[0.18em] text-gold-dark">
+            How AI shows up here
+          </p>
+          <h2 className="mt-2 text-center text-3xl text-forest sm:text-4xl">
+            A note on AI
+          </h2>
+        </Reveal>
+        <RevealGroup className="mt-8 space-y-5">
+          {ASSESSMENT.noteOnAI.map((p, i) => (
+            <RevealItem key={i}>
+              <p className="text-lg leading-relaxed text-charcoal">{p}</p>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </Section>
+
+      {/* If you're not local — quieter cream-dim follow-on */}
+      <Section tone="cream" width="narrow">
         <Reveal>
           <h2 className="text-2xl text-forest sm:text-3xl">
             {ASSESSMENT.notLocal.heading}
@@ -172,20 +211,6 @@ export default function AssessmentPage() {
               {ASSESSMENT.notForYou}
             </p>
           </RevealItem>
-        </RevealGroup>
-      </Section>
-
-      {/* A note on AI — FOREST band, focused honesty */}
-      <Section tone="forest" width="narrow">
-        <Reveal>
-          <h2 className="text-3xl text-cream sm:text-4xl">A note on AI</h2>
-        </Reveal>
-        <RevealGroup className="mt-8 space-y-5">
-          {ASSESSMENT.noteOnAI.map((p, i) => (
-            <RevealItem key={i}>
-              <p className="text-lg leading-relaxed text-cream/85">{p}</p>
-            </RevealItem>
-          ))}
         </RevealGroup>
       </Section>
 
