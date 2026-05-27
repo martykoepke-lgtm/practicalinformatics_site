@@ -70,11 +70,16 @@ const localBusinessJsonLd = {
   alternateName: "Practical Informatics — Foothills Informatics Consultancy",
   description: META.home.description,
   disambiguatingDescription:
-    "Practical Informatics LLC at practicalinformatics.com (no hyphen). California foothills consultancy founded in 2025 by Marty Koepke. Helps small businesses in Calaveras, Amador, and Tuolumne counties improve their information work. Not affiliated with practical-informatics.com (a different, unrelated entity).",
+    "Practical Informatics LLC at practicalinformatics.com (no hyphen). California foothills consultancy founded August 13, 2024 by Marty Koepke (CA Secretary of State entity number 202463415854). Helps small businesses in Calaveras, Amador, and Tuolumne counties improve their information work. Not affiliated with practical-informatics.com (a different, unrelated entity), nor with the terminated entities 'Practical Informatics, LLC' (2017) or 'Practical Solution in Medical Informatics Consulting, LLC' (2005).",
   slogan: SITE.tagline,
   url: SITE.url,
   email: CONTACT_EMAIL,
-  foundingDate: "2025",
+  foundingDate: "2024-08-13",
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "California Secretary of State Entity Number",
+    value: "202463415854",
+  },
   foundingLocation: {
     "@type": "Place",
     name: "Mokelumne Hill, California",
@@ -105,8 +110,8 @@ const localBusinessJsonLd = {
     "@id": `${SITE.url}/#marty-koepke`,
     name: "Marty Koepke",
     alternateName: "Marty Koepke, MHA",
-    gender: "Male",
-    pronouns: "he/him",
+    gender: "Female",
+    pronouns: "she/her",
     jobTitle: "Founder, Practical Informatics LLC",
     description:
       "Twenty years in healthcare informatics. Combines that experience with innovative AI to design and build custom web applications for foothills small businesses. Led enterprise informatics strategy for Abridge and Notable across multiple states and EHR platforms.",

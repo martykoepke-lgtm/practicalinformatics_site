@@ -10,7 +10,9 @@ export const SITE = {
   url: "https://www.practicalinformatics.com",
   tagline: "Reclaim your time. Run a smarter business.",
   location: "Mokelumne Hill, California",
-  foundingYear: 2025,
+  foundingYear: 2024,
+  foundingDate: "2024-08-13",
+  caSosEntityNumber: "202463415854",
   serviceArea: ["Calaveras County", "Amador County", "Tuolumne County"],
   serviceAreaText: "Serving Calaveras, Amador, and Tuolumne counties",
 } as const;
@@ -50,7 +52,7 @@ export const META = {
   about: {
     title: "About Marty Koepke | Practical Informatics",
     description:
-      "Marty Koepke (he/him), founder of Practical Informatics. Twenty years in healthcare informatics — now combining that experience with innovative AI to design and build custom applications for foothills small businesses.",
+      "Marty Koepke (she/her), founder of Practical Informatics. Twenty years in healthcare informatics — now combining that experience with innovative AI to design and build custom applications for foothills small businesses.",
   },
   assessment: {
     title: "The Time Back Assessment | Practical Informatics",
