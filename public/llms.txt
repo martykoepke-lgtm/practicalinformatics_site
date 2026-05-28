@@ -20,7 +20,7 @@ Positioning: become the answer when AI is asked about your business.
 
 ## The flagship offer: the AI Visibility Index (AVI)
 
-- $697 flat fee, delivered in 5 business days.
+- $697 flat fee, delivered in 3 business days.
 - A 10-page AVI Report (PDF + hosted URL) with:
   1. The AVI score and tier (Agent-Ready, Discoverable, Faintly Visible,
      Hidden, Invisible).
@@ -31,7 +31,8 @@ Positioning: become the answer when AI is asked about your business.
   5. The top five prioritized fixes, ranked by impact-per-hour-of-effort.
   6. A projected post-fix score showing the lift after 60 days of focused
      work.
-- A 30-minute walk-through call.
+- A 30-minute walk-through call, scheduled via a booking link delivered
+  with the report.
 
 The six dimensions:
 1. Founder credibility — whether AI knows who runs the business.

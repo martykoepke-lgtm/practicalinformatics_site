@@ -52,7 +52,7 @@ const offerJsonLd = {
     price: "697",
     priceCurrency: "USD",
     description:
-      "Flat fee. Includes 10-page AVI Report with live LLM tests across Claude, ChatGPT, and Gemini, six-dimension scorecard, top-5 prioritized fix list, projected post-fix score, and a 30-minute walk-through call. Delivered in 5 business days.",
+      "Flat fee. Includes 10-page AVI Report with live LLM tests across Claude, ChatGPT, and Gemini, six-dimension scorecard, top-5 prioritized fix list, projected post-fix score, and a 30-minute walk-through call. Delivered in 3 business days; booking link for the walk-through call arrives with the report.",
     availability: "https://schema.org/InStock",
   },
   hasOfferCatalog: {

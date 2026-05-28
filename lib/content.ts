@@ -255,7 +255,7 @@ export const AVI = {
   subTagline:
     "Find out what ChatGPT, Claude, and Gemini are saying about your business.",
   heroSubhead:
-    "A six-dimension audit of how AI sees your business — with the top five things you can do to change the answer. Delivered in five business days.",
+    "A six-dimension audit of how AI sees your business — with the top five things you can do to change the answer. Delivered in three business days.",
   heroTrust: [
     "Live LLM tests across Claude, ChatGPT, Gemini",
     "Six-dimension scorecard",
@@ -270,7 +270,7 @@ export const AVI = {
   whatsDifferent: [
     "Most AI visibility tools are dashboards built by SEO firms that bolted on a 'GEO module' last year. They give you a score, dump 50 issues on you, and walk away.",
     "The AVI is delivered by a person — me — who reads the actual LLM responses, makes a judgement call on which fixes will actually move the score, and walks you through it on a real call.",
-    "Five business days from purchase to delivery. Then a 30-minute call. Then you decide what to do — fix it yourself, hand it to your team, or have me implement the top five for you in the Implementation Sprint.",
+    "Three business days from purchase to delivery. Your report arrives with a booking link so you can schedule the 30-minute walk-through call at a time that works for you. Then you decide what to do — fix it yourself, hand it to your team, or have me implement the top five for you in the Implementation Sprint.",
   ],
   dimensions: [
     {
@@ -304,11 +304,11 @@ export const AVI = {
     "A six-dimension scorecard with a radar chart and a one-line plain-English assessment of each",
     "A top-five fix list, prioritized by impact-per-hour-of-effort, with what to do and why it matters",
     "A projected post-fix score showing what 60 days of focused work moves you to",
-    "A 30-minute walk-through call to explain the findings, answer questions, and pick what to fix first",
+    "A 30-minute walk-through call to explain the findings, answer questions, and pick what to fix first — booking link arrives with your report so you can schedule on your time",
   ],
   cost: {
     headline: "$697 flat. Includes everything above.",
-    sub: "Delivered in five business days. Want it done for you instead of done-with-you? The Implementation Sprint is $3,997 — two weeks, top five fixes shipped, plus a 60-day re-scan.",
+    sub: "Delivered in three business days. Want it done for you instead of done-with-you? The Implementation Sprint is $3,997 — two weeks, top five fixes shipped, plus a 60-day re-scan.",
   },
   forYou:
     "Established small professional-service firms — coaches, consultants, agencies, SaaS, brick-and-mortar businesses where buyers research before they decide. Typically $500K–$10M in revenue, with at least some marketing budget. If your buyers Google or ChatGPT you before they call you, this is for you.",
@@ -329,7 +329,7 @@ export const AVI = {
     },
     {
       q: "How long does the audit take to deliver?",
-      a: "Five business days from purchase to delivery. The walk-through call is usually scheduled within two weeks after.",
+      a: "Three business days from purchase to delivery. Your report arrives with a booking link so you can schedule the 30-minute walk-through call at a time that works for you — most clients book within the following two weeks.",
     },
     {
       q: "Why only top five fixes? Don't you find more issues than that?",
